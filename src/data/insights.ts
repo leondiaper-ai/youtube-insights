@@ -57,24 +57,34 @@ export const confidenceTiers: { level: ConfidenceLevel; label: string; color: st
 export const toveLoTimeline = [
   {
     day: 0, label: "Day 0", type: "Official MV",
+    purpose: "Hero Moment", purposeDetail: "The attention peak",
     thumbnail_url: "https://i.ytimg.com/vi/placeholder/hqdefault.jpg",
     youtube_url: null, views: null,
   },
   {
     day: 9, label: "Day 9", type: "BTS + Visualiser",
+    purpose: "World Expansion", purposeDetail: "Deepens the story",
     thumbnail_url: null, youtube_url: null, views: null,
   },
   {
     day: 16, label: "Day 16", type: "Lyric Video + Remix",
+    purpose: "Discovery + Reach", purposeDetail: "New entry points",
     thumbnail_url: null, youtube_url: null, views: null,
   },
   {
     day: 23, label: "Day 23", type: "Visualiser",
+    purpose: "Atmosphere", purposeDetail: "Extends the world",
     thumbnail_url: null, youtube_url: null, views: null,
   },
 ];
 
 export const toveLoEvidence = {
+  benchmarkStats: [
+    { value: 'Top 9%', label: 'Campaign diversity', context: 'Rank 13 of 138 channels' },
+    { value: '1.5×', label: 'Benchmark formats', context: 'vs 4.7 avg content types' },
+    { value: '7', label: 'Content types', context: 'Top 10% threshold' },
+    { value: '4', label: 'Return moments', context: 'Planned before launch' },
+  ],
   whyPicked: [
     'Top 9% content diversity (Rank 13 of 138)',
     '7 content formats used — 1.5x benchmark average',

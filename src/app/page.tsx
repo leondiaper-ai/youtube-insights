@@ -320,58 +320,143 @@ function StoryInNumbers() {
 // ─── 4. TOVE LO ─────────────────────────────────────────────────────────
 
 function ToveLo() {
+  const journeySteps = [
+    { d: 0, purpose: 'Hero Moment', detail: 'The attention peak', format: 'Official MV', color: INK },
+    { d: 9, purpose: 'World Expansion', detail: 'Deepens the story', format: 'BTS + Visualiser', color: ELECTRIC },
+    { d: 16, purpose: 'Discovery + Reach', detail: 'New entry points', format: 'Lyric + Remix', color: MINT },
+    { d: 23, purpose: 'Atmosphere', detail: 'Extends the world', format: 'Visualiser', color: SIGNAL },
+  ];
+
   return (
     <SectionShell id="tove-lo">
       <Eyebrow color={MINT}>What Good Looks Like</Eyebrow>
       <SectionTitle>Tove Lo</SectionTitle>
       <Subtitle>
-        Not more content. Better sequencing. Each asset expanded the campaign world.
+        One campaign. Four return moments. Every asset had a job.
       </Subtitle>
 
-      {/* VISUAL PROOF — Multi-Format Campaign Shape */}
-      <VisualProof
-        title="MULTI-FORMAT CAMPAIGN SHAPE"
-        headline="This campaign was planned. Every asset had a purpose and a place in the sequence — decided before launch day."
-        badges={[{ v: 'Top 9% diversity', c: MINT }, { v: '1.5x benchmark formats', c: ELECTRIC }, { v: '7 content types', c: MINT }]}
-        accent={MINT}
-      >
-        <div style={{ position: 'relative', height: 68, marginLeft: 8 }}>
-          {/* Timeline track */}
-          <div style={{ position: 'absolute', top: 7, left: 0, width: `${(23 / 26) * 100}%`, height: 3, background: MINT, borderRadius: 2 }} />
-          {/* Timeline dots with format labels */}
-          {[
-            { d: 0, label: 'Day 0', type: 'OMV', color: INK },
-            { d: 9, label: 'Day 9', type: 'BTS + Vis', color: ELECTRIC },
-            { d: 16, label: 'Day 16', type: 'Lyric + Remix', color: MINT },
-            { d: 23, label: 'Day 23', type: 'Visualiser', color: SIGNAL },
-          ].map(n => (
-            <div key={n.d} style={{ position: 'absolute', left: `${(n.d / 26) * 100}%`, transform: 'translateX(-50%)', textAlign: 'center' }}>
-              <div style={{
-                width: 18, height: 18, borderRadius: '50%', background: n.color, margin: '0 auto',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff' }} />
+      {/* EVIDENCE FIRST — Benchmark stats */}
+      <div style={{
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+        gap: 12, marginBottom: 32,
+      }}>
+        {toveLoEvidence.benchmarkStats.map((s, i) => (
+          <div key={i} style={{
+            background: '#fff', borderRadius: 16, border: `1px solid ${BONE}`,
+            padding: '20px 16px', textAlign: 'center',
+          }}>
+            <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 900, color: MINT, letterSpacing: '-0.03em', lineHeight: 1 }}>
+              {s.value}
+            </div>
+            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: INK, marginTop: 6 }}>
+              {s.label}
+            </div>
+            <div style={{ fontSize: '0.68rem', color: SMOKE, marginTop: 2 }}>
+              {s.context}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* CAMPAIGN JOURNEY — Light canvas timeline */}
+      <Card style={{ padding: '32px 28px', marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+          <div className="eyebrow" style={{ color: MINT, margin: 0 }}>23-Day Campaign Journey</div>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <span style={{ fontSize: '0.68rem', color: SMOKE }}>Every 7–9 days</span>
+            <span style={{ fontSize: '0.68rem', color: SMOKE }}>·</span>
+            <span style={{ fontSize: '0.68rem', color: SMOKE }}>4 return moments</span>
+          </div>
+        </div>
+
+        {/* Journey track */}
+        <div style={{ position: 'relative', paddingLeft: 28 }}>
+          {/* Vertical line */}
+          <div style={{
+            position: 'absolute', left: 13, top: 8, bottom: 8,
+            width: 2, background: `linear-gradient(${MINT}, ${SIGNAL})`,
+          }} />
+
+          {journeySteps.map((step, i) => (
+            <div key={step.d} style={{
+              display: 'grid', gridTemplateColumns: '56px 1fr',
+              gap: 16, alignItems: 'start',
+              position: 'relative', marginBottom: i < journeySteps.length - 1 ? 28 : 0,
+            }}>
+              {/* Dot */}
+              <div style={{ position: 'absolute', left: -22, top: 4 }}>
+                <div style={{
+                  width: 14, height: 14, borderRadius: '50%',
+                  background: step.color, border: '3px solid #fff',
+                  boxShadow: `0 0 0 1px ${BONE}`,
+                }} />
               </div>
-              <div style={{ marginTop: 4, fontSize: '0.58rem', color: 'rgba(255,255,255,0.4)' }}>{n.label}</div>
-              <div style={{ fontSize: '0.6rem', color: n.color, fontWeight: 700, whiteSpace: 'nowrap' }}>{n.type}</div>
+
+              {/* Day label */}
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: SMOKE, paddingTop: 1 }}>
+                Day {step.d}
+              </div>
+
+              {/* Content */}
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.color, marginBottom: 2 }}>
+                  {step.purpose}
+                </div>
+                <div style={{ fontSize: '0.82rem', color: INK, fontWeight: 500 }}>
+                  {step.detail}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: SMOKE, marginTop: 2 }}>
+                  {step.format}
+                </div>
+              </div>
             </div>
           ))}
         </div>
-        {/* Cadence annotation */}
-        <div style={{ display: 'flex', gap: 16, marginTop: 8, flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.3)' }}>Every 7-9 days</span>
-          <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.3)' }}>4 distinct content types</span>
-          <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.3)' }}>23-day rollout</span>
-        </div>
-      </VisualProof>
 
-      {/* Brief learning */}
-      <DarkCard accent={MINT}>
-        <div className="eyebrow" style={{ color: MINT, marginBottom: 12 }}>The learning</div>
-        <p style={{ fontSize: '0.92rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.8)', margin: 0 }}>
-          Each asset served a different purpose in the campaign world — BTS for depth, Lyric for discovery, Remix for reach, Visualiser for atmosphere. Four return moments from one release.
-        </p>
-      </DarkCard>
+        {/* Benchmark comparison */}
+        <div style={{
+          marginTop: 28, paddingTop: 20,
+          borderTop: `1px solid ${BONE}`,
+          display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+          gap: 16, alignItems: 'center',
+        }}>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+              138-Channel Average
+            </div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: BONE }}>4.7</div>
+            <div style={{ fontSize: '0.72rem', color: SMOKE }}>content types</div>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+            <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
+              <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={MINT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span style={{ fontSize: '0.65rem', fontWeight: 800, color: MINT }}>1.5×</span>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+              Tove Lo
+            </div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: MINT }}>7</div>
+            <div style={{ fontSize: '0.72rem', color: SMOKE }}>content types</div>
+          </div>
+        </div>
+      </Card>
+
+      {/* THE LEARNING — One memorable thought */}
+      <div style={{
+        background: CREAM, borderRadius: 16, padding: '24px 28px',
+        borderLeft: `4px solid ${MINT}`,
+      }}>
+        <div className="headline" style={{ fontSize: 'clamp(1rem, 2vw, 1.3rem)', color: INK, lineHeight: 1.3, marginBottom: 8 }}>
+          Every asset had a job. Every job expanded the campaign world.
+        </div>
+        <div style={{ fontSize: '0.85rem', color: SMOKE, lineHeight: 1.5 }}>
+          BTS for depth. Lyric for discovery. Remix for reach. Visualiser for atmosphere.
+        </div>
+      </div>
     </SectionShell>
   );
 }
