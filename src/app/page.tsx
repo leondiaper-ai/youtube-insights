@@ -531,45 +531,6 @@ function WatcherBadge({ classification }: { classification: string }) {
 
 // ─── Case Study Visual Proofs ──────────────────────────────────────────
 
-function VBadge({ v, c }: { v: string; c: string }) {
-  return (
-    <span style={{
-      padding: '3px 10px', borderRadius: 6, background: `${c}15`,
-      fontSize: '0.7rem', fontWeight: 700, color: c, letterSpacing: '0.04em',
-    }}>{v}</span>
-  );
-}
-
-function VisualProof({ title, headline, badges, accent, children }: {
-  title: string; headline: string;
-  badges: { v: string; c: string }[];
-  accent: string; children: React.ReactNode;
-}) {
-  return (
-    <div style={{
-      background: INK, borderRadius: 16, padding: '24px 28px',
-      marginBottom: 20, borderTop: `3px solid ${accent}`,
-    }}>
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
-        marginBottom: 24, flexWrap: 'wrap', gap: 10,
-      }}>
-        <div className="eyebrow" style={{ color: accent }}>{title}</div>
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-          {badges.map(b => <VBadge key={b.v} v={b.v} c={b.c} />)}
-        </div>
-      </div>
-      {children}
-      <div style={{
-        marginTop: 20, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.08)',
-        fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5, fontWeight: 500,
-      }}>
-        {headline}
-      </div>
-    </div>
-  );
-}
-
 function MaryVisualProof({ accent }: { accent: string }) {
   const evidence = [
     { value: '1 of 138', label: 'Channels using the 7–14 day window', context: 'the rarest campaign behaviour in the dataset' },
@@ -710,162 +671,487 @@ function MaryVisualProof({ accent }: { accent: string }) {
 }
 
 function FrenchVisualProof({ accent }: { accent: string }) {
+  const evidence = [
+    { value: '4', label: 'Release-week uploads', context: 'highest of any case study' },
+    { value: '1.4×', label: 'More campaign moments than benchmark', context: '14 vs 9.8 average across 138 channels' },
+    { value: '0', label: 'Post-release follow-ups', context: 'no campaign moments after Day 7' },
+    { value: 'Weak', label: 'Conversion classification', context: 'despite strong upload volume' },
+  ];
+
+  const journey = [
+    { d: 0, purpose: 'Hero Moment', detail: 'Launch the campaign', format: 'Ready or Not MV · 1.7M views', color: accent },
+    { d: 2, purpose: 'Momentum Push', detail: 'Sustain release-week energy', format: 'Ghosts MV · 469K views', color: SUN },
+    { d: 4, purpose: 'Velocity Stack', detail: 'Keep the sequence alive', format: 'Therapy MV · 390K views', color: ELECTRIC },
+    { d: 4, purpose: 'Behind the Scenes', detail: 'Add depth to the hero', format: 'Ready Or Not BTS · 15K views', color: MINT },
+  ];
+
   return (
-    <VisualProof
-      title="RELEASE-WEEK VELOCITY"
-      headline="High activity. Weak conversion. The opportunity is depth, not volume."
-      badges={[{ v: 'Weak Conversion', c: SUN }, { v: 'Top 22% volume', c: accent }]}
-      accent={accent}
-    >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-            <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.5)', fontWeight: 700, letterSpacing: '0.06em', minWidth: 130 }}>FRENCH THE KID</div>
-            <span className="headline" style={{ fontSize: '1.6rem', color: accent }}>4</span>
-            <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)' }}>release-week uploads</span>
+    <>
+      {/* EVIDENCE — 4 stat cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 10, marginBottom: 24 }}>
+        {evidence.map((s, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 14, border: `1px solid ${BONE}`, padding: '18px 14px', textAlign: 'center' }}>
+            <div style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 900, color: accent, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</div>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: INK, marginTop: 6 }}>{s.label}</div>
+            <div style={{ fontSize: '0.62rem', color: SMOKE, marginTop: 2 }}>{s.context}</div>
           </div>
-          <div style={{ height: 28, borderRadius: 8, background: accent, width: '82%', position: 'relative' }}>
-            <span style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>
-              Highest of any case study
-            </span>
+        ))}
+      </div>
+
+      {/* CAMPAIGN JOURNEY */}
+      <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
+          <div className="eyebrow" style={{ color: accent, margin: 0 }}>4-Day Release Week</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 assets in 4 days — then silence</div>
+        </div>
+
+        <div style={{ position: 'relative', paddingLeft: 28 }}>
+          <div style={{
+            position: 'absolute', left: 13, top: 8, bottom: 8,
+            width: 2, background: `linear-gradient(${accent}, ${MINT})`,
+          }} />
+
+          {journey.map((step, i) => (
+            <div key={i} style={{
+              display: 'grid', gridTemplateColumns: '56px 1fr',
+              gap: 16, alignItems: 'start',
+              position: 'relative', marginBottom: i < journey.length - 1 ? 26 : 0,
+            }}>
+              <div style={{ position: 'absolute', left: -22, top: 4 }}>
+                <div style={{
+                  width: 14, height: 14, borderRadius: '50%',
+                  background: step.color, border: '3px solid #fff',
+                  boxShadow: `0 0 0 1px ${BONE}`,
+                }} />
+              </div>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: SMOKE, paddingTop: 1 }}>
+                Day {step.d}
+              </div>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.color, marginBottom: 2 }}>
+                  {step.purpose}
+                </div>
+                <div style={{ fontSize: '0.82rem', color: INK, fontWeight: 500 }}>
+                  {step.detail}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: SMOKE, marginTop: 2 }}>
+                  {step.format}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Benchmark comparison */}
+        <div style={{ marginTop: 24, paddingTop: 18, borderTop: `1px solid ${BONE}` }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+            gap: 16, alignItems: 'center',
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: accent, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                Release Week
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: accent }}>4</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments</div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
+                <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={SMOKE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: SMOKE }}>then</span>
+            </div>
+
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                After Day 7
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>0</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>follow-up moments</div>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
+            The velocity is there. The depth isn&#39;t — yet.
           </div>
         </div>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-            <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)', fontWeight: 700, letterSpacing: '0.06em', minWidth: 130 }}>BENCHMARK AVG</div>
-            <span className="headline" style={{ fontSize: '1.6rem', color: 'rgba(255,255,255,0.25)' }}>~1</span>
-            <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.2)' }}>release-week upload</span>
-          </div>
-          <div style={{ height: 28, borderRadius: 8, background: 'rgba(255,255,255,0.06)', width: '20%' }} />
+      </Card>
+
+      {/* THE LEARNING */}
+      <div style={{
+        background: CREAM, borderRadius: 14, padding: '22px 24px',
+        borderLeft: `4px solid ${accent}`,
+      }}>
+        <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
+          Already thinks in campaigns. The gap is what happens after release week.
         </div>
       </div>
-    </VisualProof>
+    </>
   );
 }
 
 function Gener8ionVisualProof({ accent }: { accent: string }) {
+  const evidence = [
+    { value: '4.7M', label: 'Avg views per upload', context: 'Rank 21 of 138 channels by efficiency' },
+    { value: '23.6M', label: 'Total campaign views', context: 'Rank 43 of 138 channels' },
+    { value: '5', label: 'Total uploads', context: 'fewest of any case study artist' },
+    { value: 'Growing', label: 'Channel classification', context: 'with minimum volume' },
+  ];
+
+  const journey = [
+    { d: 0, purpose: 'Hero Moment', detail: 'Capture attention at scale', format: 'STORM MV · 14M views', color: INK },
+    { d: 2, purpose: 'World Expansion', detail: 'Deepen the story', format: 'BTS · 198K views', color: ELECTRIC },
+    { d: 2, purpose: 'Anticipation Building', detail: 'Extend the narrative', format: 'Album Trailer · 265K views', color: MINT },
+    { d: 23, purpose: 'Return Moment', detail: 'Give fans a reason to come back', format: 'LOVE & TEARS · 1.5M views', color: SIGNAL },
+  ];
+
   return (
-    <VisualProof
-      title="CAMPAIGN EFFICIENCY"
-      headline="More with 5 campaign moments than most channels achieve with 25 uploads. Multi-format campaigns outperform upload frequency."
-      badges={[{ v: 'Growing', c: MINT }, { v: 'Top 15% views/upload', c: MINT }]}
-      accent={accent}
-    >
-      <div style={{ display: 'flex', gap: 32, alignItems: 'flex-end' }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.3)', fontWeight: 700, letterSpacing: '0.06em', marginBottom: 10 }}>TOTAL UPLOADS</div>
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 14 }}>
-            <div style={{ height: 40, width: 48, borderRadius: 8, background: 'rgba(255,255,255,0.08)' }} />
-            <div>
-              <div className="headline" style={{ fontSize: '2.2rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1 }}>5</div>
-              <div style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.2)', marginTop: 2 }}>fewest of any case study</div>
+    <>
+      {/* EVIDENCE — 4 stat cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 10, marginBottom: 24 }}>
+        {evidence.map((s, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 14, border: `1px solid ${BONE}`, padding: '18px 14px', textAlign: 'center' }}>
+            <div style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 900, color: MINT, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</div>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: INK, marginTop: 6 }}>{s.label}</div>
+            <div style={{ fontSize: '0.62rem', color: SMOKE, marginTop: 2 }}>{s.context}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* CAMPAIGN JOURNEY */}
+      <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
+          <div className="eyebrow" style={{ color: MINT, margin: 0 }}>23-Day Campaign Journey</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 campaign moments from 5 uploads</div>
+        </div>
+
+        <div style={{ position: 'relative', paddingLeft: 28 }}>
+          <div style={{
+            position: 'absolute', left: 13, top: 8, bottom: 8,
+            width: 2, background: `linear-gradient(${INK}, ${SIGNAL})`,
+          }} />
+
+          {journey.map((step, i) => (
+            <div key={i} style={{
+              display: 'grid', gridTemplateColumns: '56px 1fr',
+              gap: 16, alignItems: 'start',
+              position: 'relative', marginBottom: i < journey.length - 1 ? 26 : 0,
+            }}>
+              <div style={{ position: 'absolute', left: -22, top: 4 }}>
+                <div style={{
+                  width: 14, height: 14, borderRadius: '50%',
+                  background: step.color, border: '3px solid #fff',
+                  boxShadow: `0 0 0 1px ${BONE}`,
+                }} />
+              </div>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: SMOKE, paddingTop: 1 }}>
+                Day {step.d}
+              </div>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.color, marginBottom: 2 }}>
+                  {step.purpose}
+                </div>
+                <div style={{ fontSize: '0.82rem', color: INK, fontWeight: 500 }}>
+                  {step.detail}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: SMOKE, marginTop: 2 }}>
+                  {step.format}
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* Benchmark comparison */}
+        <div style={{ marginTop: 24, paddingTop: 18, borderTop: `1px solid ${BONE}` }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+            gap: 16, alignItems: 'center',
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                Typical Channel
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>~25</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>uploads for comparable reach</div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
+                <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={MINT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: MINT }}>5×</span>
+            </div>
+
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                GENER8ION
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>5</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>uploads → 23.6M views</div>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
+            Every asset expanded the campaign world. Nothing was filler.
           </div>
         </div>
-        <div style={{ paddingBottom: 16, color: 'rgba(255,255,255,0.12)', fontSize: '1.8rem', lineHeight: 1 }}>→</div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 700, letterSpacing: '0.06em', marginBottom: 10 }}>VIEWS PER UPLOAD</div>
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 14 }}>
-            <div style={{ height: 100, width: 48, borderRadius: 8, background: `linear-gradient(180deg, ${MINT}, ${MINT}66)` }} />
-            <div>
-              <div className="headline" style={{ fontSize: '2.2rem', color: MINT, lineHeight: 1 }}>4.7M</div>
-              <div style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.4)', marginTop: 2 }}>avg views per upload</div>
-            </div>
-          </div>
+      </Card>
+
+      {/* THE LEARNING */}
+      <div style={{
+        background: CREAM, borderRadius: 14, padding: '22px 24px',
+        borderLeft: `4px solid ${MINT}`,
+      }}>
+        <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
+          More impact with 5 uploads than most channels get from 25.
         </div>
       </div>
-    </VisualProof>
+    </>
   );
 }
 
 function KTrapVisualProof({ accent }: { accent: string }) {
-  const max = 95;
-  const pct = (d: number) => `${(d / max) * 100}%`;
+  const valueColor = WARM; // SUN on white has poor contrast for text
+
+  const evidence = [
+    { value: 'Top 9%', label: 'Format diversity', context: '8 campaign moment types' },
+    { value: '1.7×', label: 'More campaign moments than benchmark', context: '17 vs 9.8 average' },
+    { value: 'Day 30+', label: 'BTS timing gap', context: 'vs Day 7–10 recommended window' },
+    { value: 'Weak', label: 'Conversion classification', context: 'despite strong content volume' },
+  ];
+
+  const journey: { label: string; purpose: string; detail: string; format: string; color: string; missed?: boolean }[] = [
+    { label: 'Day 0', purpose: 'Hero Moment', detail: '3 release-day assets', format: 'Mystery Box + Change MV + LA Vlog · 1.8M views', color: accent },
+    { label: 'Day 7–10', purpose: 'Recommended Window', detail: 'Where BTS should land', format: 'No content delivered', color: MINT, missed: true },
+    { label: 'Day 30', purpose: 'Late Support', detail: 'Outside the attention window', format: 'Mystery Box BTS · 5.3K views', color: SIGNAL },
+    { label: 'Day 88', purpose: 'Late Support', detail: 'Audience has moved on', format: "Can’t Say No BTS · 2.7K views", color: SIGNAL },
+  ];
+
   return (
-    <VisualProof
-      title="SUPPORT TIMING GAP"
-      headline="The content exists. The opportunity is timing. Moving BTS from Day 30+ to Day 7-10 is a scheduling fix, not a creation ask."
-      badges={[{ v: 'Top 9% diversity', c: accent }, { v: 'Weak Conversion', c: SUN }]}
-      accent={accent}
-    >
-      <div style={{ position: 'relative', height: 88, marginBottom: 8 }}>
-        {/* Full timeline track */}
-        <div style={{ position: 'absolute', top: 24, left: 0, right: 0, height: 3, background: 'rgba(255,255,255,0.06)', borderRadius: 2 }} />
-        {/* Recommended window — green zone */}
-        <div style={{
-          position: 'absolute', top: 10, left: pct(7), width: `${((14 - 7) / max) * 100}%`,
-          height: 32, background: `${MINT}15`, borderRadius: 6, border: `1px solid ${MINT}30`,
-        }}>
-          <div style={{ position: 'absolute', top: -16, left: '50%', transform: 'translateX(-50%)', whiteSpace: 'nowrap', fontSize: '0.56rem', color: MINT, fontWeight: 700, letterSpacing: '0.04em' }}>
-            RECOMMENDED WINDOW
+    <>
+      {/* EVIDENCE — 4 stat cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 10, marginBottom: 24 }}>
+        {evidence.map((s, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 14, border: `1px solid ${BONE}`, padding: '18px 14px', textAlign: 'center' }}>
+            <div style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 900, color: valueColor, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</div>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: INK, marginTop: 6 }}>{s.label}</div>
+            <div style={{ fontSize: '0.62rem', color: SMOKE, marginTop: 2 }}>{s.context}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* CAMPAIGN JOURNEY */}
+      <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
+          <div className="eyebrow" style={{ color: WARM, margin: 0 }}>Support Timing Gap</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>BTS at Day 30+ instead of Day 7–10</div>
+        </div>
+
+        <div style={{ position: 'relative', paddingLeft: 28 }}>
+          <div style={{
+            position: 'absolute', left: 13, top: 8, bottom: 8,
+            width: 2, background: `linear-gradient(${accent}, ${SIGNAL})`,
+          }} />
+
+          {journey.map((step, i) => (
+            <div key={i} style={{
+              display: 'grid', gridTemplateColumns: '56px 1fr',
+              gap: 16, alignItems: 'start',
+              position: 'relative', marginBottom: i < journey.length - 1 ? 26 : 0,
+              opacity: step.missed ? 0.55 : 1,
+            }}>
+              <div style={{ position: 'absolute', left: -22, top: 4 }}>
+                <div style={{
+                  width: 14, height: 14, borderRadius: '50%',
+                  background: step.missed ? 'transparent' : step.color,
+                  border: step.missed ? `2px dashed ${MINT}` : '3px solid #fff',
+                  boxShadow: step.missed ? 'none' : `0 0 0 1px ${BONE}`,
+                }} />
+              </div>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: step.missed ? MINT : SMOKE, paddingTop: 1 }}>
+                {step.label}
+              </div>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.missed ? MINT : step.color, marginBottom: 2 }}>
+                  {step.purpose}
+                </div>
+                <div style={{ fontSize: '0.82rem', color: INK, fontWeight: 500 }}>
+                  {step.detail}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: SMOKE, marginTop: 2 }}>
+                  {step.format}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Benchmark comparison */}
+        <div style={{ marginTop: 24, paddingTop: 18, borderTop: `1px solid ${BONE}` }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+            gap: 16, alignItems: 'center',
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                Recommended
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>Day 7–10</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>BTS attention window</div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
+                <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={SIGNAL} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: SIGNAL }}>actual</span>
+            </div>
+
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: SIGNAL, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                K-Trap
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: SIGNAL }}>Day 30+</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>when BTS actually lands</div>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
+            The content exists. Moving it forward is a scheduling fix.
           </div>
         </div>
-        {/* Day 0 hero */}
-        <div style={{ position: 'absolute', left: 0, top: 18, textAlign: 'center', transform: 'translateX(-50%)' }}>
-          <div style={{ width: 14, height: 14, borderRadius: '50%', background: accent }} />
-          <div style={{ marginTop: 4, fontSize: '0.56rem', color: 'rgba(255,255,255,0.4)' }}>Day 0</div>
-          <div style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.25)' }}>Hero</div>
-        </div>
-        {/* BTS Day 30 — late */}
-        <div style={{ position: 'absolute', left: pct(30), top: 18, textAlign: 'center', transform: 'translateX(-50%)' }}>
-          <div style={{ width: 14, height: 14, borderRadius: '50%', background: SIGNAL }} />
-          <div style={{ marginTop: 4, fontSize: '0.56rem', color: SIGNAL, fontWeight: 600 }}>Day 30</div>
-          <div style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.3)' }}>BTS</div>
-        </div>
-        {/* BTS Day 88 — very late */}
-        <div style={{ position: 'absolute', left: pct(88), top: 18, textAlign: 'center', transform: 'translateX(-50%)' }}>
-          <div style={{ width: 14, height: 14, borderRadius: '50%', background: SIGNAL }} />
-          <div style={{ marginTop: 4, fontSize: '0.56rem', color: SIGNAL, fontWeight: 600 }}>Day 88</div>
-          <div style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.3)' }}>BTS</div>
-        </div>
-        {/* Gap annotation */}
-        <div style={{
-          position: 'absolute', top: 56, left: pct(14),
-          width: `${((30 - 14) / max) * 100}%`,
-          borderBottom: `1px dashed ${SIGNAL}30`,
-        }}>
-          <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: 4, fontSize: '0.56rem', color: `${SIGNAL}88`, fontWeight: 600, whiteSpace: 'nowrap' }}>
-            missed window
-          </div>
+      </Card>
+
+      {/* THE LEARNING */}
+      <div style={{
+        background: CREAM, borderRadius: 14, padding: '22px 24px',
+        borderLeft: `4px solid ${accent}`,
+      }}>
+        <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
+          The instincts are right. The fix is timing, not creation.
         </div>
       </div>
-    </VisualProof>
+    </>
   );
 }
 
 function SnutsVisualProof({ accent }: { accent: string }) {
-  const max = 82;
-  const pct = (d: number) => `${(d / max) * 100}%`;
-  const assets = [
-    { d: 0, t: 'OMV' }, { d: 19, t: 'Lyric' }, { d: 49, t: 'Live' },
-    { d: 65, t: 'BTS' }, { d: 77, t: 'Lyric' },
+  const evidence = [
+    { value: '22', label: 'Total campaign moments', context: '2.2× the benchmark average' },
+    { value: '6', label: 'Distinct format types', context: 'Lyric, Live, BTS, Acoustic, Shorts, OMV' },
+    { value: 'Pre-launch', label: 'Campaign timeline mapped', context: 'every moment planned before first upload' },
+    { value: 'Rank 12', label: 'Of 138 channels', context: 'top 9% follow-up support' },
   ];
+
+  const journey = [
+    { d: 0, purpose: 'Hero Moment', detail: 'Launch the campaign', format: 'Summer Rain OMV · 177K views', color: accent },
+    { d: 19, purpose: 'Audience Deepening', detail: 'Alternate format, same world', format: 'Motherlands Lyric · 8.7K views', color: ELECTRIC },
+    { d: 49, purpose: 'Return Moment', detail: 'Bring fans back', format: 'Motherlands Live · 1.3K views', color: SIGNAL },
+    { d: 65, purpose: 'World Expansion', detail: 'Add depth to the campaign', format: 'Album BTS · 535 views', color: SUN },
+    { d: 77, purpose: 'Campaign Extension', detail: 'New single, same world', format: 'Defibrillator Lyric · 6.3K views', color: accent },
+  ];
+
   return (
-    <VisualProof
-      title="PLANNED CAMPAIGN"
-      headline="Campaign planning happened before launch day. Every asset had a purpose and a place in the sequence."
-      badges={[{ v: '22 assets', c: accent }, { v: '2.2x benchmark', c: accent }, { v: '7 types', c: MINT }]}
-      accent={accent}
-    >
-      <div style={{
-        display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px',
-        borderRadius: 6, marginBottom: 16, background: `${accent}12`,
-        border: `1px solid ${accent}25`, fontSize: '0.68rem', fontWeight: 700,
-        color: accent, letterSpacing: '0.04em',
-      }}>
-        PRE-MAPPED IN COACH
-      </div>
-      <div style={{ position: 'relative', height: 56, marginLeft: 8 }}>
-        <div style={{ position: 'absolute', top: 7, left: 0, width: pct(77), height: 3, background: accent, borderRadius: 2 }} />
-        {assets.map(({ d, t }) => (
-          <div key={d} style={{ position: 'absolute', left: pct(d), transform: 'translateX(-50%)', textAlign: 'center' }}>
-            <div style={{ width: 14, height: 14, borderRadius: '50%', background: accent, margin: '0 auto' }} />
-            <div style={{ marginTop: 4, fontSize: '0.58rem', color: 'rgba(255,255,255,0.4)' }}>Day {d}</div>
-            <div style={{ fontSize: '0.55rem', color: accent, fontWeight: 700 }}>{t}</div>
+    <>
+      {/* EVIDENCE — 4 stat cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 10, marginBottom: 24 }}>
+        {evidence.map((s, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 14, border: `1px solid ${BONE}`, padding: '18px 14px', textAlign: 'center' }}>
+            <div style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 900, color: accent, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</div>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: INK, marginTop: 6 }}>{s.label}</div>
+            <div style={{ fontSize: '0.62rem', color: SMOKE, marginTop: 2 }}>{s.context}</div>
           </div>
         ))}
       </div>
-    </VisualProof>
+
+      {/* CAMPAIGN JOURNEY */}
+      <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
+          <div className="eyebrow" style={{ color: accent, margin: 0 }}>77-Day Campaign Journey</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>5 formats over 77 days — pre-mapped in Coach</div>
+        </div>
+
+        <div style={{ position: 'relative', paddingLeft: 28 }}>
+          <div style={{
+            position: 'absolute', left: 13, top: 8, bottom: 8,
+            width: 2, background: `linear-gradient(${accent}, ${accent})`,
+          }} />
+
+          {journey.map((step, i) => (
+            <div key={i} style={{
+              display: 'grid', gridTemplateColumns: '56px 1fr',
+              gap: 16, alignItems: 'start',
+              position: 'relative', marginBottom: i < journey.length - 1 ? 26 : 0,
+            }}>
+              <div style={{ position: 'absolute', left: -22, top: 4 }}>
+                <div style={{
+                  width: 14, height: 14, borderRadius: '50%',
+                  background: step.color, border: '3px solid #fff',
+                  boxShadow: `0 0 0 1px ${BONE}`,
+                }} />
+              </div>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: SMOKE, paddingTop: 1 }}>
+                Day {step.d}
+              </div>
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.color, marginBottom: 2 }}>
+                  {step.purpose}
+                </div>
+                <div style={{ fontSize: '0.82rem', color: INK, fontWeight: 500 }}>
+                  {step.detail}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: SMOKE, marginTop: 2 }}>
+                  {step.format}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Benchmark comparison */}
+        <div style={{ marginTop: 24, paddingTop: 18, borderTop: `1px solid ${BONE}` }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+            gap: 16, alignItems: 'center',
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                138-Channel Average
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>9.8</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments</div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
+                <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: accent }}>2.2×</span>
+            </div>
+
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: accent, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                The Snuts
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: accent }}>22</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments — pre-planned</div>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
+            Every moment was mapped before the first asset dropped.
+          </div>
+        </div>
+      </Card>
+
+      {/* THE LEARNING */}
+      <div style={{
+        background: CREAM, borderRadius: 14, padding: '22px 24px',
+        borderLeft: `4px solid ${accent}`,
+      }}>
+        <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
+          Planning is the one variable fully in our control.
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -947,58 +1233,15 @@ function CaseStudies() {
               {isExpanded && (
                 <div style={{ padding: '0 28px 28px' }}>
 
-                  {/* VISUAL PROOF — one visual per artist */}
+                  {/* VISUAL PROOF — evidence + journey + learning per artist */}
                   <CaseStudyVisual slug={cs.artist_slug} accent={cs.accent} />
-
-                  {/* CAMPAIGN TIMELINE — skip for Mary (handled in visual proof) */}
-                  {cs.assets.length > 0 && cs.artist_slug !== 'mary-in-the-junkyard' && (
-                    <div style={{ marginBottom: 28 }}>
-                      <div className="eyebrow" style={{ color: SMOKE, marginBottom: 14 }}>Campaign Timeline</div>
-                      <div style={{
-                        display: 'flex', gap: 12, overflowX: 'auto',
-                        paddingBottom: 6,
-                      }}>
-                        {cs.assets.map((a, i) => (
-                          <div key={i} style={{
-                            background: '#fff', borderRadius: 14, padding: '16px 20px',
-                            minWidth: 170, flexShrink: 0,
-                            border: `1px solid ${BONE}`,
-                            borderTop: `4px solid ${cs.accent}`,
-                          }}>
-                            <div style={{ fontSize: '0.72rem', color: SMOKE, fontWeight: 700, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                              Day {a.days_from_hero}
-                            </div>
-                            <div style={{ fontSize: '0.92rem', fontWeight: 700, color: INK, lineHeight: 1.3, marginBottom: 6 }}>
-                              {a.asset_title}
-                            </div>
-                            {a.views && (
-                              <div style={{ fontSize: '0.8rem', color: MINT, fontWeight: 600 }}>
-                                {a.views >= 1_000_000 ? `${(a.views / 1_000_000).toFixed(1)}M views` : `${(a.views / 1_000).toFixed(0)}K views`}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* BOTTOM — 2 columns: observations + learning */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, marginBottom: 20 }}>
-                    <div>
-                      <div className="eyebrow" style={{ color: SMOKE, marginBottom: 10 }}>What we observed</div>
-                      <BulletList items={cs.observations.slice(0, 3)} color={cs.accent} />
-                    </div>
-                    <div>
-                      <div className="eyebrow" style={{ color: SMOKE, marginBottom: 10 }}>The learning</div>
-                      <p style={{ fontSize: '0.88rem', color: WARM, lineHeight: 1.6, margin: 0 }}>{cs.learning}</p>
-                    </div>
-                  </div>
 
                   {/* ACTION BOX — black */}
                   <div style={{
                     background: INK, borderRadius: 14, padding: '20px 24px',
+                    marginTop: 20,
                   }}>
-                    <div className="eyebrow" style={{ color: MINT, marginBottom: 8 }}>What we'd test</div>
+                    <div className="eyebrow" style={{ color: MINT, marginBottom: 8 }}>What we&#39;d test</div>
                     <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6, margin: 0 }}>
                       {cs.action}
                     </p>
