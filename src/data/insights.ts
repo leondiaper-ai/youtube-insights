@@ -19,7 +19,7 @@ export const followUpSegments = [
   { pct: 41, label: "Silent", color: "#FF4A1C", desc: "Nothing after the hero asset. No follow-up. No audience return point." },
   { pct: 35, label: "Shorts Only", color: "#FFD24C", desc: "Discovery layer active, but no deeper campaign moments to support." },
   { pct: 9, label: "Limited Longform", color: "#8A847A", desc: "One extra format. No structured sequence." },
-  { pct: 15, label: "Multi-Format Rollout", color: "#1FBE7A", desc: "Multiple formats sequenced to create audience return moments." },
+  { pct: 15, label: "Multi-Format Campaign", color: "#1FBE7A", desc: "Multiple formats sequenced to create audience return moments." },
 ];
 
 // ─── Confidence Tiers ───────────────────────────────────────────────────
@@ -31,7 +31,7 @@ export const confidenceTiers: { level: ConfidenceLevel; label: string; color: st
     level: 'high', label: 'High Confidence', color: '#1FBE7A',
     items: [
       'Live sessions cluster among growing channels',
-      'Multi-format campaigns outperform single-asset releases',
+      'Multi-format campaigns create more audience return moments than single-asset releases',
       'Campaign planning correlates with sustained attention',
     ],
   },
@@ -80,19 +80,19 @@ export const toveLoTimeline = [
 
 export const toveLoEvidence = {
   benchmarkStats: [
-    { value: 'Top 9%', label: 'Most varied campaign', context: 'of 138 channels analysed' },
+    { value: 'Top 9%', label: 'Multi-format campaign ranking', context: 'of 138 channels analysed' },
     { value: '1.5×', label: 'More campaign moments than average', context: '7 vs 4.7 across the dataset' },
-    { value: '7', label: 'Distinct campaign moments', context: 'Only 10% of channels reach this' },
+    { value: '23 days', label: 'Campaign rollout length', context: 'a new moment every 7–9 days' },
     { value: '4', label: 'Audience return moments', context: 'Each planned before launch' },
   ],
   whyPicked: [
-    'Top 9% content diversity (Rank 13 of 138)',
-    '7 content formats used — 1.5x benchmark average',
-    '6 pre-campaign assets before hero drop',
+    'Top 9% multi-format campaign (Rank 13 of 138)',
+    '7 campaign moments — 1.5× the benchmark average',
+    '6 pre-campaign moments before hero drop',
     '23-day rollout across OMV, BTS, Lyric, Remix, Visualiser',
   ],
-  whyMatters: 'One of 14 channels using 7+ formats. Sequencing across weeks — not volume — drives sustained attention.',
-  benchmarkContext: 'Benchmark average: 5.2 types. Top 10% threshold: 7+. Tove Lo uses 7 formats — a combination only 10% of channels match.',
+  whyMatters: 'One of 14 channels with 7+ campaign moments. Sequencing across weeks — not volume — drove sustained attention.',
+  benchmarkContext: 'Benchmark: 5.2 campaign moments. Top 10%: 7+. Tove Lo used 7 — a multi-format campaign only 10% of channels match.',
 };
 
 // ─── Strategy Framework ──────────────────────────────────────────────────
@@ -178,8 +178,8 @@ export const caseStudies: CaseStudy[] = [
       insight: "Only case study artist who delivered content in the follow-through window — a behaviour rare across all 138 channels.",
     },
     benchmarkMetrics: [
-      { value: "Rank 24", label: "content diversity", context: "of 138 channels (top 17%)" },
-      { value: "29 days", label: "rollout length", context: "3 follow-up assets across 4 formats" },
+      { value: "Rank 24", label: "multi-format ranking", context: "of 138 channels (top 17%)" },
+      { value: "29 days", label: "rollout length", context: "3 follow-up moments across 4 formats" },
       { value: "1 of 30", label: "Growing channels", context: "despite modest view counts" },
     ],
     whyMatters: 'Shows how smaller artists can build audience depth without relying on huge view counts.',
@@ -214,9 +214,9 @@ export const caseStudies: CaseStudy[] = [
       insight: "Highest release-week activity of any case study artist — strong velocity, but classified Weak Conversion despite the volume.",
     },
     benchmarkMetrics: [
-      { value: "Rank 31", label: "upload volume", context: "of 138 channels (top 22%)" },
-      { value: "1.4x", label: "support assets vs benchmark", context: "14 assets vs 9.8 average" },
-      { value: "5 layers", label: "campaign layers used", context: "OMV, Shorts, Teasers, BTS, Other" },
+      { value: "5", label: "campaign moment types", context: "OMV, Shorts, Teasers, BTS, Other" },
+      { value: "1.4×", label: "more campaign moments than benchmark", context: "14 vs 9.8 average across 138 channels" },
+      { value: "0", label: "campaign moments after release week", context: "no audience return moments beyond Day 7" },
     ],
     whyMatters: 'Shows that rapid release cadence can create project momentum, but needs post-release depth.',
     observations: [
@@ -283,17 +283,17 @@ export const caseStudies: CaseStudy[] = [
     watcherClassification: "WEAK_CONVERSION",
     heroBenchmark: {
       value: "Rank 12 of 138",
-      insight: "Top 9% content diversity with 8 content types — but BTS lands at Day 30+ instead of Day 7-10, outside the attention window.",
+      insight: "Top 9% multi-format campaign — 8 campaign moment types — but BTS lands at Day 30+ instead of Day 7–10, outside the attention window.",
     },
     benchmarkMetrics: [
-      { value: "1.7x", label: "support assets vs benchmark", context: "17 assets vs 9.8 average" },
+      { value: "1.7×", label: "more campaign moments than benchmark", context: "17 vs 9.8 average" },
       { value: "Rank 29", label: "upload volume", context: "of 138 channels (top 21%)" },
       { value: "Day 30+", label: "BTS timing gap", context: "vs Day 7-10 attention window" },
     ],
     whyMatters: 'Shows that content volume alone does not automatically create subscriber growth.',
     observations: [
       "BTS-per-single pattern is consistent and repeatable",
-      "More support assets than most Growing channels",
+      "More campaign moments than most Growing channels",
       "Timing gap: BTS at Day 30+ misses the attention window",
     ],
     learning: "The content exists. The instincts are right. The gap is timing — BTS lands at Day 30 instead of Day 7–10, after the audience has moved on.",
@@ -320,12 +320,12 @@ export const caseStudies: CaseStudy[] = [
     watcherClassification: "WEAK_CONVERSION",
     heroBenchmark: {
       value: "Rank 12 of 138",
-      insight: "Top 9% follow-up support with 22 assets (2.2x benchmark) — the most structured support plan of any case study artist.",
+      insight: "Top 9% follow-up support with 22 campaign moments (2.2× benchmark) — the most structured campaign plan of any case study artist.",
     },
     benchmarkMetrics: [
-      { value: "7 types", label: "content diversity", context: "Rank 30 of 138 (top 22%)" },
-      { value: "6 layers", label: "campaign layers", context: "Lyric, Live, BTS, Acoustic, Shorts, OMV" },
-      { value: "Pre-launch", label: "campaign planning", context: "timeline mapped before first asset" },
+      { value: "22", label: "total campaign moments", context: "2.2× the benchmark average" },
+      { value: "6", label: "distinct format types", context: "Lyric, Live, BTS, Acoustic, Shorts, OMV" },
+      { value: "Pre-launch", label: "campaign timeline mapped", context: "every moment planned before first upload" },
     ],
     whyMatters: 'Shows how planning before launch gives teams more control over the release window.',
     observations: [
@@ -353,8 +353,8 @@ export const caseStudies: CaseStudy[] = [
 export const benchmarks = [
   { metric: "Live Sessions", virgin: 48, market: 63, gap: -15, unit: "%", actionable: true, humanGap: "15 points behind market" },
   { metric: "Lyric Videos", virgin: 44, market: 54, gap: -10, unit: "%", actionable: true, humanGap: "10 points behind market" },
-  { metric: "Multi-Format Rollout", virgin: 13, market: 18, gap: -5, unit: "%", actionable: true, humanGap: "5 points behind market" },
-  { metric: "Content Diversity", virgin: 4.8, market: 4.6, gap: 0.2, unit: " avg types", actionable: false, humanGap: "Comparable" },
+  { metric: "Multi-Format Campaign", virgin: 13, market: 18, gap: -5, unit: "%", actionable: true, humanGap: "5 points behind market" },
+  { metric: "Format Variety", virgin: 4.8, market: 4.6, gap: 0.2, unit: " avg formats", actionable: false, humanGap: "Comparable" },
   { metric: "Visualisers", virgin: 65, market: 61, gap: 4, unit: "%", actionable: false, humanGap: "4 points ahead" },
   { metric: "BTS Content", virgin: 26, market: 30, gap: -4, unit: "%", actionable: false, humanGap: "4 points behind — within margin" },
 ];
@@ -377,11 +377,11 @@ export const corrections = [
   },
   {
     assumption: "Most campaigns already follow up",
-    finding: "41% went silent after the hero. Only 15% ran multi-format rollouts.",
+    finding: "41% went silent after the hero. Only 15% ran multi-format campaigns.",
   },
   {
-    assumption: "More content types = stronger growth",
-    finding: "Weak Conversion channels averaged more types (5.5) than Growing ones (5.1). Diversity without timing didn't convert.",
+    assumption: "More formats = stronger growth",
+    finding: "Weak Conversion channels averaged more formats (5.5) than Growing ones (5.1). Variety without timing didn't convert.",
   },
 ];
 
@@ -407,7 +407,7 @@ export const successChecklist = [
   { item: "Hero moment planned", desc: "MV or visualiser — the attention peak" },
   { item: "Follow-up sequence decided before launch", desc: "Not reactive. Pre-mapped." },
   { item: "Content in the 7–14 day window", desc: "The period 85% of campaigns miss" },
-  { item: "Multiple content formats", desc: "BTS, lyric, live, or remix — each serves a different purpose" },
+  { item: "Multiple campaign moments", desc: "BTS, lyric, live, or remix — each serves a different purpose in the campaign world" },
   { item: "Campaign extends beyond release week", desc: "Audience return moments in weeks 2–3" },
   { item: "Discovery layer active", desc: "Shorts running alongside — introducing new audiences to the campaign" },
 ];
@@ -433,13 +433,13 @@ export const futureRoadmap = [
 
 export const watcherThesis = {
   headline: "No single metric predicts growth.",
-  subhead: "Growth appears when planning, timing, and content diversity work together — not when any one of them works alone.",
+  subhead: "Growth appears when planning, timing, and format variety work together — not when any one of them works alone.",
   factors: [
     {
-      label: "Content Mix",
-      detail: "Weak Conversion channels averaged more content types (5.5) than Growing ones (5.1). Diversity without timing didn't convert.",
+      label: "Format Variety",
+      detail: "Weak Conversion channels averaged more formats (5.5) than Growing ones (5.1). Variety without timing didn't convert.",
       stat: "5.1 vs 5.5",
-      statLabel: "Growing vs Weak Conversion avg types",
+      statLabel: "Growing vs Weak Conversion avg formats",
     },
     {
       label: "Campaign Timing",
@@ -449,7 +449,7 @@ export const watcherThesis = {
     },
     {
       label: "Follow-Up",
-      detail: "41% went silent after the hero. Only 15% ran a multi-format rollout. The gap between something and nothing was larger than the gap between good and great.",
+      detail: "41% went silent after the hero. Only 15% ran a multi-format campaign. The gap between something and nothing was larger than the gap between good and great.",
       stat: "41%",
       statLabel: "Silent after hero asset",
     },
@@ -460,7 +460,7 @@ export const watcherThesis = {
       statLabel: "Correlation with channel health",
     },
   ],
-  closingLine: "Growth comes from building return moments — not from any single content decision.",
+  closingLine: "Growth comes from building audience return moments — not from any single content decision.",
 };
 
 // ─── Attention Is The Scarce Resource ────────────────────────────────────
@@ -483,6 +483,6 @@ export const takeaways = [
   { title: "Plan follow-up before launch.", detail: "Campaign design starts in planning, not reaction." },
   { title: "Add live sessions.", detail: "15 points behind market. Low cost, high return value." },
   { title: "Add lyric videos.", detail: "10 points behind market. A discovery layer half the market already uses." },
-  { title: "Think in return moments, not uploads.", detail: "Spacing matters more than volume." },
+  { title: "Think in audience return moments, not uploads.", detail: "Spacing matters more than volume." },
   { title: "Build campaign worlds, not content lists.", detail: "BTS for depth, lyric for discovery, live for connection, remix for reach." },
 ];

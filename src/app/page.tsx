@@ -32,7 +32,7 @@ const sections = [
   { id: 'case-studies', label: 'Cases' },
   { id: 'thesis', label: 'Thesis' },
   { id: 'benchmarks', label: 'Benchmarks' },
-  { id: 'diversity', label: 'Diversity' },
+  { id: 'diversity', label: 'Multi-Format' },
   { id: 'confidence', label: 'Confidence' },
   { id: 'corrections', label: 'Mind Changed' },
   { id: 'playbook', label: 'Playbook' },
@@ -220,7 +220,7 @@ function About() {
         <Card>
           <div className="eyebrow" style={{ color: MINT, marginBottom: 12 }}>Methodology</div>
           <BulletList color={MINT} items={[
-            'Channel health classification, follow-up window analysis, content diversity scoring',
+            'Channel health classification, follow-up window analysis, multi-format scoring',
             '7 active campaigns manually validated against the data',
           ]} />
         </Card>
@@ -298,7 +298,7 @@ function StoryInNumbers() {
           borderLeft: `4px solid ${MINT}`,
         }}>
           <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6, margin: 0, fontWeight: 600 }}>
-            The strongest channels weren't making more content. They were creating more reasons for audiences to come back.
+            The strongest channels weren&apos;t making more content. They were building multi-format campaigns with multiple audience return moments.
           </p>
         </div>
         <div style={{
@@ -308,7 +308,7 @@ function StoryInNumbers() {
           borderLeft: `4px solid ${ELECTRIC}`,
         }}>
           <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6, margin: 0, fontWeight: 600 }}>
-            Most campaigns create one attention peak. Few create multiple peaks.
+            Most campaigns create one attention peak. Few create multiple audience return moments.
           </p>
         </div>
       </div>
@@ -654,7 +654,7 @@ function Gener8ionVisualProof({ accent }: { accent: string }) {
   return (
     <VisualProof
       title="CAMPAIGN EFFICIENCY"
-      headline="More with 5 uploads than most channels achieve with 25. Planned campaign moments outperform upload frequency."
+      headline="More with 5 campaign moments than most channels achieve with 25 uploads. Multi-format campaigns outperform upload frequency."
       badges={[{ v: 'Growing', c: MINT }, { v: 'Top 15% views/upload', c: MINT }]}
       accent={accent}
     >
@@ -1009,7 +1009,7 @@ function Benchmarks() {
           padding: '14px 28px', background: INK, color: '#fff',
           fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
         }}>
-          <div>Content Type</div>
+          <div>Format</div>
           <div style={{ textAlign: 'center' }}>Virgin</div>
           <div style={{ textAlign: 'center' }}>Market</div>
           <div style={{ textAlign: 'right' }}>Difference</div>
@@ -1053,7 +1053,7 @@ function Benchmarks() {
         borderLeft: `4px solid ${SIGNAL}`,
         fontSize: '0.9rem', color: WARM, lineHeight: 1.6,
       }}>
-        <strong style={{ color: INK }}>Live sessions:</strong> 15 points behind market — a return moment we&apos;re not creating.
+        <strong style={{ color: INK }}>Live sessions:</strong> 15 points behind market — an audience return moment we&apos;re not creating.
         <strong style={{ color: INK }}> Lyric videos:</strong> 10 points behind — a discovery layer half the market uses.
         <span style={{ color: SIGNAL, fontWeight: 600 }}> ●</span> = gap we&apos;d test first.
       </div>
@@ -1066,15 +1066,15 @@ function Benchmarks() {
 function ContentDiversity() {
   return (
     <SectionShell id="diversity">
-      <Eyebrow color={MINT}>Top 10% Content Diversity</Eyebrow>
-      <SectionTitle>Content diversity matters. Timing matters more.</SectionTitle>
+      <Eyebrow color={MINT}>Multi-Format Campaigns</Eyebrow>
+      <SectionTitle>Format variety matters. Timing matters more.</SectionTitle>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginBottom: 32 }}>
         {/* Big stat — strengthened */}
         <DarkCard>
           <div className="headline" style={{ fontSize: '4.5rem', color: MINT, marginBottom: 8 }}>7+</div>
           <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: 12 }}>
-            content types = top 10% diversity
+            formats = top 10% multi-format campaign
           </div>
           <div style={{
             display: 'flex', gap: 16, marginBottom: 16,
@@ -1085,7 +1085,7 @@ function ContentDiversity() {
             }}>
               <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.4)', fontWeight: 600, marginBottom: 4 }}>Average Channel</div>
               <div className="headline" style={{ fontSize: '1.6rem', color: 'rgba(255,255,255,0.7)' }}>{diversityStats.avgAllChannels}</div>
-              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>content types</div>
+              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>formats</div>
             </div>
             <div style={{
               flex: 1, background: 'rgba(31,190,122,0.12)',
@@ -1093,11 +1093,11 @@ function ContentDiversity() {
             }}>
               <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, marginBottom: 4 }}>Top 10%</div>
               <div className="headline" style={{ fontSize: '1.6rem', color: MINT }}>7+</div>
-              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>content types</div>
+              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>formats</div>
             </div>
           </div>
           <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>
-            Most channels use 4–5 types. The strongest use 7+. But diversity alone doesn&apos;t convert.
+            Most channels use 4–5 formats. The strongest use 7+. But variety alone doesn&apos;t convert.
           </div>
         </DarkCard>
 
@@ -1107,7 +1107,7 @@ function ContentDiversity() {
             <div className="eyebrow" style={{ color: MINT, marginBottom: 8 }}>Growing Channels</div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 8 }}>
               <span className="headline" style={{ fontSize: '2rem', color: MINT }}>{diversityStats.growingAvg}</span>
-              <span style={{ fontSize: '0.85rem', color: SMOKE }}>avg content types</span>
+              <span style={{ fontSize: '0.85rem', color: SMOKE }}>avg formats</span>
             </div>
             <div style={{ height: 8, borderRadius: 4, background: BONE }}>
               <div style={{ height: 8, borderRadius: 4, background: MINT, width: `${(diversityStats.growingAvg / 10) * 100}%` }} />
@@ -1117,13 +1117,13 @@ function ContentDiversity() {
             <div className="eyebrow" style={{ color: '#9A6324', marginBottom: 8 }}>Weak Conversion Channels</div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 8 }}>
               <span className="headline" style={{ fontSize: '2rem', color: SUN }}>{diversityStats.weakConversionAvg}</span>
-              <span style={{ fontSize: '0.85rem', color: SMOKE }}>avg content types</span>
+              <span style={{ fontSize: '0.85rem', color: SMOKE }}>avg formats</span>
             </div>
             <div style={{ height: 8, borderRadius: 4, background: BONE }}>
               <div style={{ height: 8, borderRadius: 4, background: SUN, width: `${(diversityStats.weakConversionAvg / 10) * 100}%` }} />
             </div>
             <div style={{ fontSize: '0.78rem', color: SMOKE, fontStyle: 'italic', marginTop: 8 }}>
-              More types than Growing — diversity alone did not appear to convert
+              More formats than Growing — variety alone did not appear to convert
             </div>
           </Card>
         </div>
@@ -1134,8 +1134,8 @@ function ContentDiversity() {
         borderLeft: `4px solid ${SUN}`,
         fontSize: '0.9rem', color: WARM, lineHeight: 1.6,
       }}>
-        <strong style={{ color: INK }}>The nuance:</strong> Weak Conversion channels made MORE content types
-        than Growing ones. Diversity created opportunity. Campaign design — sequencing and timing around releases — determined whether it converted.
+        <strong style={{ color: INK }}>The nuance:</strong> Weak Conversion channels used MORE formats
+        than Growing ones. Variety created opportunity. Campaign design — sequencing and timing to create audience return moments — determined whether it converted.
       </div>
     </SectionShell>
   );
@@ -1243,9 +1243,9 @@ function CampaignFramework() {
   return (
     <SectionShell id="playbook">
       <Eyebrow color={MINT}>Example Campaign Framework</Eyebrow>
-      <SectionTitle>A campaign is four return moments.</SectionTitle>
+      <SectionTitle>A campaign is four audience return moments.</SectionTitle>
       <Subtitle>
-        Not four assets. Four reasons for audiences to come back.
+        Not four uploads. Four reasons for audiences to come back.
       </Subtitle>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 12 }}>
@@ -1481,7 +1481,7 @@ function FinalTakeaways() {
           color: '#fff', marginBottom: 12,
           maxWidth: 700,
         }}>
-          The biggest opportunity isn't making more content.
+          The biggest opportunity isn&apos;t making more content.
         </div>
         <div className="headline" style={{
           fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
@@ -1489,7 +1489,7 @@ function FinalTakeaways() {
           maxWidth: 700,
           marginBottom: 16,
         }}>
-          It&apos;s building campaign worlds that give audiences reasons to return.
+          It&apos;s building multi-format campaign worlds that give audiences reasons to return.
         </div>
         <div style={{
           fontSize: '0.95rem', color: 'rgba(255,255,255,0.4)',
