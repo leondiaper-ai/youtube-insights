@@ -321,10 +321,10 @@ function StoryInNumbers() {
 
 function ToveLo() {
   const journeySteps = [
-    { d: 0, purpose: 'Hero Moment', detail: 'The attention peak', format: 'Official MV', color: INK },
-    { d: 9, purpose: 'World Expansion', detail: 'Deepens the story', format: 'BTS + Visualiser', color: ELECTRIC },
-    { d: 16, purpose: 'Discovery + Reach', detail: 'New entry points', format: 'Lyric + Remix', color: MINT },
-    { d: 23, purpose: 'Atmosphere', detail: 'Extends the world', format: 'Visualiser', color: SIGNAL },
+    { d: 0, purpose: 'Hero Moment', detail: 'Capture attention', format: 'Official MV', color: INK },
+    { d: 9, purpose: 'World Expansion', detail: 'Deepen the story', format: 'BTS + Visualiser', color: ELECTRIC },
+    { d: 16, purpose: 'Discovery', detail: 'Reach new audiences', format: 'Lyric Video + Remix', color: MINT },
+    { d: 23, purpose: 'Return Moment', detail: 'Give fans a reason to come back', format: 'Visualiser', color: SIGNAL },
   ];
 
   return (
@@ -332,7 +332,7 @@ function ToveLo() {
       <Eyebrow color={MINT}>What Good Looks Like</Eyebrow>
       <SectionTitle>Tove Lo</SectionTitle>
       <Subtitle>
-        One campaign. Four return moments. Every asset had a job.
+        Not more campaign moments. Better ones — each with a clear job.
       </Subtitle>
 
       {/* EVIDENCE FIRST — Benchmark stats */}
@@ -365,7 +365,7 @@ function ToveLo() {
           <div style={{ display: 'flex', gap: 8 }}>
             <span style={{ fontSize: '0.68rem', color: SMOKE }}>Every 7–9 days</span>
             <span style={{ fontSize: '0.68rem', color: SMOKE }}>·</span>
-            <span style={{ fontSize: '0.68rem', color: SMOKE }}>4 return moments</span>
+            <span style={{ fontSize: '0.68rem', color: SMOKE }}>4 campaign moments</span>
           </div>
         </div>
 
@@ -417,30 +417,36 @@ function ToveLo() {
         <div style={{
           marginTop: 28, paddingTop: 20,
           borderTop: `1px solid ${BONE}`,
-          display: 'grid', gridTemplateColumns: '1fr auto 1fr',
-          gap: 16, alignItems: 'center',
         }}>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
-              138-Channel Average
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+            gap: 16, alignItems: 'center',
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                Average Campaign
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>4.7</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments</div>
             </div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: BONE }}>4.7</div>
-            <div style={{ fontSize: '0.72rem', color: SMOKE }}>content types</div>
-          </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-            <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
-              <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={MINT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span style={{ fontSize: '0.65rem', fontWeight: 800, color: MINT }}>1.5×</span>
-          </div>
-
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
-              Tove Lo
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
+                <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={MINT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: MINT }}>1.5×</span>
             </div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: MINT }}>7</div>
-            <div style={{ fontSize: '0.72rem', color: SMOKE }}>content types</div>
+
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                Tove Lo
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>7</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments</div>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
+            More moments gave audiences more reasons to return — each with a different job in the campaign.
           </div>
         </div>
       </Card>
@@ -454,7 +460,7 @@ function ToveLo() {
           Every asset had a job. Every job expanded the campaign world.
         </div>
         <div style={{ fontSize: '0.85rem', color: SMOKE, lineHeight: 1.5 }}>
-          BTS for depth. Lyric for discovery. Remix for reach. Visualiser for atmosphere.
+          BTS to deepen the story. Lyric video to reach new audiences. Remix for reach. Visualiser to bring fans back.
         </div>
       </div>
     </SectionShell>
