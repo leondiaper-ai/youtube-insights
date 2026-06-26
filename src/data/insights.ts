@@ -17,7 +17,7 @@ export const headlineStats = [
 
 export const followUpSegments = [
   { pct: 41, label: "Silent", color: "#FF4A1C", desc: "Nothing after the hero asset. No follow-up. No audience return point." },
-  { pct: 35, label: "Shorts Only", color: "#FFD24C", desc: "Shorts but no longform follow-up timed to releases." },
+  { pct: 35, label: "Shorts Only", color: "#FFD24C", desc: "Discovery layer active, but no deeper campaign moments to support." },
   { pct: 9, label: "Limited Longform", color: "#8A847A", desc: "One extra format. No structured sequence." },
   { pct: 15, label: "Multi-Format Rollout", color: "#1FBE7A", desc: "Multiple formats sequenced to create audience return moments." },
 ];
@@ -216,15 +216,15 @@ export const caseStudies: CaseStudy[] = [
     benchmarkMetrics: [
       { value: "Rank 31", label: "upload volume", context: "of 138 channels (top 22%)" },
       { value: "1.4x", label: "support assets vs benchmark", context: "14 assets vs 9.8 average" },
-      { value: "5 formats", label: "content types", context: "OMV, Shorts, Teasers, BTS, Other" },
+      { value: "5 layers", label: "campaign layers used", context: "OMV, Shorts, Teasers, BTS, Other" },
     ],
     whyMatters: 'Shows that rapid release cadence can create project momentum, but needs post-release depth.',
     observations: [
       "4 release-week uploads — highest of any case study",
-      "Campaign thinking focused on velocity, not post-release depth",
+      "Shorts active as discovery layer, but deeper campaign layers missing after release week",
       "Weak Conversion classification despite strong volume",
     ],
-    learning: "Already thinks in campaigns. The gap isn't volume — it's what happens after release week. Depth, not speed.",
+    learning: "Already thinks in campaigns. The discovery layer is working. The gap is deeper campaign moments after release week — world expansion, search, return.",
     action: "Add one post-release asset per single. A sequencing refinement, not a strategy change.",
     campaign_type: "rapid_release",
     release_date: null,
@@ -324,13 +324,13 @@ export const caseStudies: CaseStudy[] = [
     },
     benchmarkMetrics: [
       { value: "7 types", label: "content diversity", context: "Rank 30 of 138 (top 22%)" },
-      { value: "6 formats", label: "active formats", context: "Lyric, Live, BTS, Acoustic, Shorts, OMV" },
+      { value: "6 layers", label: "campaign layers", context: "Lyric, Live, BTS, Acoustic, Shorts, OMV" },
       { value: "Pre-launch", label: "campaign planning", context: "timeline mapped before first asset" },
     ],
     whyMatters: 'Shows how planning before launch gives teams more control over the release window.',
     observations: [
       "Campaign timeline mapped in Coach before any content dropped",
-      "6 content types including acoustic and live performance",
+      "6 campaign layers including Shorts for discovery, acoustic and live for return moments",
       "Multiple release windows planned in advance",
     ],
     learning: "Planning is one of the few variables fully in our control. The campaign world was mapped before the first asset dropped.",
@@ -390,9 +390,16 @@ export const corrections = [
 export const frameworkTimeline = [
   { window: "Day 0", type: "Hero Moment", desc: "The attention peak. Official MV or first-listen visualiser.", color: "#0E0E0E" },
   { window: "Day 3–7", type: "World Expansion", desc: "BTS, making-of, or alternate visual. Deepens the story.", color: "#2C25FF" },
-  { window: "Day 7–14", type: "Discovery Layer", desc: "Lyric video or performance clip. Search-friendly entry point.", color: "#1FBE7A" },
+  { window: "Day 7–14", type: "Search Layer", desc: "Lyric video or performance clip. Search-friendly entry point.", color: "#1FBE7A" },
   { window: "Day 14–21", type: "Return Moment", desc: "Live session, remix, or acoustic. A new reason to come back.", color: "#FF4A1C" },
 ];
+
+// Shorts run alongside as a continuous discovery layer — not a separate campaign moment
+export const shortsLayer = {
+  label: "Discovery Layer",
+  desc: "Shorts run throughout the campaign — clips, teasers, and vertical edits that introduce new audiences to the deeper campaign moments.",
+  color: "#FFD24C",
+};
 
 // ─── Success Checklist ───────────────────────────────────────────────────
 
@@ -402,13 +409,13 @@ export const successChecklist = [
   { item: "Content in the 7–14 day window", desc: "The period 85% of campaigns miss" },
   { item: "Multiple content formats", desc: "BTS, lyric, live, or remix — each serves a different purpose" },
   { item: "Campaign extends beyond release week", desc: "Audience return moments in weeks 2–3" },
-  { item: "Shorts support", desc: "Clips, teasers, or vertical edits for discovery" },
+  { item: "Discovery layer active", desc: "Shorts running alongside — introducing new audiences to the campaign" },
 ];
 
 // ─── Still Testing ───────────────────────────────────────────────────────
 
 export const openQuestions = [
-  "Does Shorts-only follow-up help or hinder longform?",
+  "When the discovery layer (Shorts) runs alone, does it help or hinder deeper campaign moments?",
   "What's the optimal spacing within the follow-up window?",
   "Do lyric videos drive subscriber conversion or just search traffic?",
   "What drives subscriber conversion specifically?",

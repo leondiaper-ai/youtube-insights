@@ -4,7 +4,7 @@ import { useState } from 'react';
 import {
   headlineStats, followUpSegments, toveLoTimeline, toveLoEvidence,
   strategyFramework, caseStudies, benchmarks, diversityStats, corrections,
-  frameworkTimeline, successChecklist, openQuestions, futureRoadmap,
+  frameworkTimeline, shortsLayer, successChecklist, openQuestions, futureRoadmap,
   takeaways, confidenceTiers, watcherThesis, attentionSection,
 } from '@/data/insights';
 
@@ -1248,7 +1248,7 @@ function CampaignFramework() {
         Not four assets. Four reasons for audiences to come back.
       </Subtitle>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 12 }}>
         {frameworkTimeline.map((step, i) => (
           <Card key={i} style={{ borderTop: `4px solid ${step.color}` }}>
             <div className="eyebrow" style={{ color: step.color, marginBottom: 8 }}>{step.window}</div>
@@ -1260,6 +1260,26 @@ function CampaignFramework() {
             </div>
           </Card>
         ))}
+      </div>
+
+      {/* Discovery Layer — Shorts running continuously alongside */}
+      <div style={{
+        background: `${shortsLayer.color}18`, borderRadius: 10,
+        padding: '12px 20px', marginBottom: 32,
+        borderLeft: `3px solid ${shortsLayer.color}`,
+        display: 'flex', alignItems: 'center', gap: 12,
+      }}>
+        <div style={{
+          background: shortsLayer.color, borderRadius: 6,
+          padding: '4px 10px', fontSize: '0.72rem', fontWeight: 700,
+          color: INK, textTransform: 'uppercase', letterSpacing: '0.05em',
+          whiteSpace: 'nowrap',
+        }}>
+          {shortsLayer.label}
+        </div>
+        <div style={{ fontSize: '0.85rem', color: WARM, lineHeight: 1.5 }}>
+          {shortsLayer.desc}
+        </div>
       </div>
 
       <div style={{
@@ -1275,10 +1295,10 @@ function CampaignFramework() {
         padding: '20px 24px', borderLeft: `4px solid ${MINT}`,
       }}>
         <p style={{ fontSize: '1rem', fontWeight: 700, color: INK, lineHeight: 1.5, margin: '0 0 8px' }}>
-          Each window builds the campaign world — not just uploads a thing.
+          Every layer has a job. The campaign is built by how they work together.
         </p>
         <p style={{ fontSize: '0.88rem', color: WARM, lineHeight: 1.6, margin: 0 }}>
-          Hero for attention. BTS for depth. Lyric for discovery. Live for connection.
+          Hero for attention. BTS for depth. Shorts for discovery. Lyric for search. Live for connection.
         </p>
       </div>
     </SectionShell>
