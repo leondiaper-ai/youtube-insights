@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF7F2;
+  --foreground: #0E0E0E;
+  --paper: #FAF7F2;
+  --ink: #0E0E0E;
+  --signal: #FF4A1C;
+  --electric: #2C25FF;
+  --mint: #1FBE7A;
+  --sun: #FFD24C;
+  --blush: #FFD3C9;
+  --cream: #F6F1E7;
+  --smoke: #8A847A;
+  --bone: #E8E3DA;
+  --warm: #4A4640;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html { scroll-behavior: smooth; }
+*:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+
+.headline {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Smooth section transitions for presentation mode */
+section {
+  scroll-margin-top: 2rem;
+}
+
+/* Stacked bar segment labels */
+.segment-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Timeline connector */
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--bone);
+  z-index: 0;
+}
+
+/* Card hover lift — matches Watcher DecisionCard */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14, 14, 14, 0.08);
+}
+
+/* Presentation nav pill */
+.nav-pill {
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-pill:hover {
+  background: rgba(14, 14, 14, 0.06);
+}
+.nav-pill.active {
+  background: var(--ink);
+  color: white;
+}
