@@ -175,7 +175,7 @@ export const caseStudies: CaseStudy[] = [
     watcherClassification: "GROWING",
     heroBenchmark: {
       value: "7–14 day follow-through",
-      insight: "The only case study artist delivering campaign moments inside the 7–14 day window — the period 85% of campaigns miss entirely.",
+      insight: "1 of 138 channels delivering content in the 7–14 day follow-through window.",
     },
     benchmarkMetrics: [
       { value: "1 of 138", label: "channels using the 7–14 day window", context: "the rarest campaign behaviour in the dataset" },
@@ -184,11 +184,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     whyMatters: 'The clearest evidence that campaign design — not view counts — drives channel health.',
     observations: [
-      "Campaign moment at Day 12 — inside the 7–14 day follow-through window",
-      "4 campaign moments across 4 formats over 29 days",
-      "Growing classification despite modest view counts",
+      "Each follow-up uses a different format — no repeats",
+      "View counts are modest but the campaign pattern mirrors top-performing channels",
     ],
-    learning: "Most campaigns disappear after release. Mary created audience return moments — and the channel grew.",
+    learning: "Campaign design — not view counts — drove channel growth.",
     action: "Add one format per single — lyric video or visualiser. Pushes into the top 10% multi-format campaign with minimal extra production.",
     campaign_type: "single_cycle",
     release_date: null,

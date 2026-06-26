@@ -580,9 +580,9 @@ function MaryVisualProof({ accent }: { accent: string }) {
 
   const journey = [
     { d: 0, purpose: 'Hero Moment', detail: 'Capture attention', format: 'Crash Landing MV · 83K views', color: accent },
-    { d: 12, purpose: 'Audience Deepening', detail: 'Keep fans inside the follow-through window', format: 'New Muscles MV · 62K views', color: MINT },
-    { d: 21, purpose: 'Audience Return Moment', detail: 'Give fans a reason to come back', format: 'Live Session · 4.7K views', color: SIGNAL },
-    { d: 32, purpose: 'Campaign Extension', detail: 'Extend the campaign world', format: 'Mouse Visualiser · 5.1K views', color: SUN },
+    { d: 12, purpose: 'Audience Deepening', detail: 'Build on the hero moment', format: 'New Muscles MV · 62K views', color: MINT },
+    { d: 21, purpose: 'Audience Return Moment', detail: 'Bring fans back', format: 'Live Session · 4.7K views', color: SIGNAL },
+    { d: 32, purpose: 'Campaign Extension', detail: 'Extend the world', format: 'Mouse Visualiser · 5.1K views', color: SUN },
   ];
 
   return (
@@ -614,7 +614,7 @@ function MaryVisualProof({ accent }: { accent: string }) {
       <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
           <div className="eyebrow" style={{ color: accent, margin: 0 }}>29-Day Campaign Journey</div>
-          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 campaign moments · 4 formats</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 formats over 29 days</div>
         </div>
 
         {/* Journey track */}
@@ -691,7 +691,7 @@ function MaryVisualProof({ accent }: { accent: string }) {
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
-            The 7–14 day follow-through window is when most campaigns lose their audience. Mary delivered a second campaign moment at Day 12.
+            85% of campaigns go silent after Day 7. Mary didn&#39;t.
           </div>
         </div>
       </Card>
@@ -701,11 +701,8 @@ function MaryVisualProof({ accent }: { accent: string }) {
         background: CREAM, borderRadius: 14, padding: '22px 24px',
         borderLeft: `4px solid ${accent}`,
       }}>
-        <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3, marginBottom: 6 }}>
-          Most campaigns disappear after release. Mary created audience return moments — and the channel grew.
-        </div>
-        <div style={{ fontSize: '0.82rem', color: SMOKE, lineHeight: 1.5 }}>
-          The only artist in the dataset delivering content in the 7–14 day window — the period that 85% of campaigns miss entirely.
+        <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
+          The campaign continued when most campaigns stopped.
         </div>
       </div>
     </>
