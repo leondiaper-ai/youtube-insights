@@ -322,9 +322,10 @@ function StoryInNumbers() {
 function ToveLo() {
   const journeySteps = [
     { d: 0, purpose: 'Hero Moment', detail: 'Capture attention', format: 'Official MV', color: INK },
-    { d: 9, purpose: 'World Expansion', detail: 'Deepen the story', format: 'BTS + Visualiser', color: ELECTRIC },
-    { d: 16, purpose: 'Discovery', detail: 'Reach new audiences', format: 'Lyric Video + Remix', color: MINT },
-    { d: 23, purpose: 'Return Moment', detail: 'Give fans a reason to come back', format: 'Visualiser', color: SIGNAL },
+    { d: 13, purpose: 'World Expansion', detail: 'Deepen the story', format: 'Behind the Scenes', color: ELECTRIC },
+    { d: 16, purpose: 'Audience Deepening', detail: 'Alternate format, same world', format: 'Visualiser (Her Cut)', color: MINT },
+    { d: 21, purpose: 'Discovery Layer', detail: 'Search-friendly entry point', format: 'Lyric Video', color: SUN },
+    { d: 23, purpose: 'Return Moment', detail: 'Reach new audiences', format: 'Fcukers Remix', color: SIGNAL },
   ];
 
   return (
@@ -363,9 +364,9 @@ function ToveLo() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
           <div className="eyebrow" style={{ color: MINT, margin: 0 }}>23-Day Campaign Journey</div>
           <div style={{ display: 'flex', gap: 8 }}>
-            <span style={{ fontSize: '0.68rem', color: SMOKE }}>Every 7–9 days</span>
+            <span style={{ fontSize: '0.68rem', color: SMOKE }}>5 formats</span>
             <span style={{ fontSize: '0.68rem', color: SMOKE }}>·</span>
-            <span style={{ fontSize: '0.68rem', color: SMOKE }}>4 campaign moments</span>
+            <span style={{ fontSize: '0.68rem', color: SMOKE }}>5 campaign moments</span>
           </div>
         </div>
 
@@ -424,29 +425,29 @@ function ToveLo() {
           }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
-                Average Campaign
+                138-Channel Benchmark
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>4.7</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>85%</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>go silent after Day 7</div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
               <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
                 <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={MINT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: MINT }}>1.5×</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: MINT }}>vs</span>
             </div>
 
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
                 Tove Lo
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>7</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>5</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>purposeful formats across 23 days</div>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
-            More moments gave audiences more reasons to return — each with a different job in the campaign.
+            Every asset had a different job. Every job expanded the campaign world.
           </div>
         </div>
       </Card>
@@ -533,17 +534,17 @@ function WatcherBadge({ classification }: { classification: string }) {
 
 function MaryVisualProof({ accent }: { accent: string }) {
   const evidence = [
-    { value: '1 of 138', label: 'Channels using the 7–14 day window', context: 'the rarest campaign behaviour in the dataset' },
+    { value: '76 days', label: 'Album rollout campaign', context: 'building toward Role Model Hermit (Jul 3)' },
+    { value: '4+', label: 'Distinct video formats', context: 'MV, acoustic, visualiser, live session' },
     { value: 'Top 17%', label: 'Multi-format campaign', context: 'Rank 24 of 138 channels' },
-    { value: '29 days', label: 'Campaign rollout', context: '4 campaign moments across 4 formats' },
     { value: 'Growing', label: 'Channel classification', context: 'despite modest view counts' },
   ];
 
   const journey = [
-    { d: 0, purpose: 'Hero Moment', detail: 'Capture attention', format: 'Crash Landing MV · 83K views', color: accent },
-    { d: 12, purpose: 'Audience Deepening', detail: 'Build on the hero moment', format: 'New Muscles MV · 62K views', color: MINT },
-    { d: 21, purpose: 'Audience Return Moment', detail: 'Bring fans back', format: 'Live Session · 4.7K views', color: SIGNAL },
-    { d: 32, purpose: 'Campaign Extension', detail: 'Extend the world', format: 'Mouse Visualiser · 5.1K views', color: SUN },
+    { d: 0, purpose: 'Hero Moment', detail: 'Launch the campaign', format: 'Crash Landing MV · 83K views', color: accent },
+    { d: 27, purpose: 'Format Variation', detail: 'Same world, different format', format: 'Candelabra Acoustic · 12K views', color: MINT },
+    { d: 55, purpose: 'Campaign Renewal', detail: 'Second single deepens the world', format: 'New Muscles MV · 62K views', color: SIGNAL },
+    { d: 76, purpose: 'Campaign Extension', detail: 'Sustain the rollout', format: 'Mouse Visualiser · 5.1K views', color: SUN },
   ];
 
   return (
@@ -574,8 +575,8 @@ function MaryVisualProof({ accent }: { accent: string }) {
       {/* CAMPAIGN JOURNEY — Light canvas, purpose-labeled */}
       <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
-          <div className="eyebrow" style={{ color: accent, margin: 0 }}>29-Day Campaign Journey</div>
-          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 formats over 29 days</div>
+          <div className="eyebrow" style={{ color: accent, margin: 0 }}>76-Day Album Rollout</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 singles · 4 formats · building to album</div>
         </div>
 
         {/* Journey track */}
@@ -622,7 +623,7 @@ function MaryVisualProof({ accent }: { accent: string }) {
           ))}
         </div>
 
-        {/* 7–14 day window callout */}
+        {/* Album rollout benchmark */}
         <div style={{ marginTop: 24, paddingTop: 18, borderTop: `1px solid ${BONE}` }}>
           <div style={{
             display: 'grid', gridTemplateColumns: '1fr auto 1fr',
@@ -630,29 +631,29 @@ function MaryVisualProof({ accent }: { accent: string }) {
           }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
-                138-Channel Benchmark
+                Most Emerging Channels
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>85%</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>go silent after Day 7</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>1–2</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>formats per release</div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
               <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
                 <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={MINT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: MINT }}>Day 12</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: MINT }}>vs</span>
             </div>
 
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '0.68rem', color: accent, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
                 Mary in the Junkyard
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: accent }}>✓</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moment in the window</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: accent }}>4+</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>formats across 76-day rollout</div>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
-            85% of campaigns go silent after Day 7. Mary didn&#39;t.
+            Every single in a different format. The campaign world grew with each release.
           </div>
         </div>
       </Card>
@@ -663,7 +664,7 @@ function MaryVisualProof({ accent }: { accent: string }) {
         borderLeft: `4px solid ${accent}`,
       }}>
         <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
-          The campaign continued when most campaigns stopped.
+          Format variety across a sustained rollout — not a single viral moment — drove channel growth.
         </div>
       </div>
     </>
@@ -672,17 +673,16 @@ function MaryVisualProof({ accent }: { accent: string }) {
 
 function FrenchVisualProof({ accent }: { accent: string }) {
   const evidence = [
-    { value: '4', label: 'Release-week uploads', context: 'highest of any case study' },
-    { value: '1.4×', label: 'More campaign moments than benchmark', context: '14 vs 9.8 average across 138 channels' },
-    { value: '0', label: 'Post-release follow-ups', context: 'no campaign moments after Day 7' },
-    { value: 'Weak', label: 'Conversion classification', context: 'despite strong upload volume' },
+    { value: '49 days', label: 'Pre-album campaign', context: 'Ghosts → Therapy → Can\'t Kill Bill' },
+    { value: '469K', label: 'Lead single views', context: 'Ghosts MV — strong opening velocity' },
+    { value: '2', label: 'Pre-album singles', context: 'building momentum toward album drop' },
+    { value: 'Weak', label: 'Conversion classification', context: 'despite consistent view counts' },
   ];
 
   const journey = [
-    { d: 0, purpose: 'Hero Moment', detail: 'Launch the campaign', format: 'Ready or Not MV · 1.7M views', color: accent },
-    { d: 2, purpose: 'Momentum Push', detail: 'Sustain release-week energy', format: 'Ghosts MV · 469K views', color: SUN },
-    { d: 4, purpose: 'Velocity Stack', detail: 'Keep the sequence alive', format: 'Therapy MV · 390K views', color: ELECTRIC },
-    { d: 4, purpose: 'Behind the Scenes', detail: 'Add depth to the hero', format: 'Ready Or Not BTS · 15K views', color: MINT },
+    { d: 0, purpose: 'Hero Moment', detail: 'Launch the album campaign', format: 'Ghosts MV · 469K views', color: accent },
+    { d: 19, purpose: 'Campaign Build', detail: 'Second single deepens momentum', format: 'Therapy MV · 390K views', color: SUN },
+    { d: 49, purpose: 'Album Launch', detail: 'Can\'t Kill Bill album release', format: 'Cocaine Clouds MV · album day', color: ELECTRIC },
   ];
 
   return (
@@ -701,8 +701,8 @@ function FrenchVisualProof({ accent }: { accent: string }) {
       {/* CAMPAIGN JOURNEY */}
       <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
-          <div className="eyebrow" style={{ color: accent, margin: 0 }}>4-Day Release Week</div>
-          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 assets in 4 days — then silence</div>
+          <div className="eyebrow" style={{ color: accent, margin: 0 }}>49-Day Album Campaign</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>2 singles building to album — Can&#39;t Kill Bill</div>
         </div>
 
         <div style={{ position: 'relative', paddingLeft: 28 }}>
@@ -750,29 +750,29 @@ function FrenchVisualProof({ accent }: { accent: string }) {
           }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '0.68rem', color: accent, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
-                Release Week
+                Pre-Album
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: accent }}>4</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moments</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: accent }}>Strong</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>2 singles in 49 days</div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
               <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
                 <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={SMOKE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: SMOKE }}>then</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: SMOKE }}>then?</span>
             </div>
 
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
-                After Day 7
+                Post-Album
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>0</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>follow-up moments</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>?</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>return moments needed</div>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
-            The velocity is there. The depth isn&#39;t — yet.
+            The pre-album instincts are strong. The opportunity is what happens next.
           </div>
         </div>
       </Card>
@@ -783,7 +783,7 @@ function FrenchVisualProof({ accent }: { accent: string }) {
         borderLeft: `4px solid ${accent}`,
       }}>
         <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
-          Already thinks in campaigns. The gap is what happens after release week.
+          Strong pre-album momentum. The opportunity is extending the campaign beyond release day.
         </div>
       </div>
     </>
@@ -793,7 +793,7 @@ function FrenchVisualProof({ accent }: { accent: string }) {
 function Gener8ionVisualProof({ accent }: { accent: string }) {
   const evidence = [
     { value: '4.7M', label: 'Avg views per upload', context: 'Rank 21 of 138 channels by efficiency' },
-    { value: '23.6M', label: 'Total campaign views', context: 'Rank 43 of 138 channels' },
+    { value: '49 days', label: 'Campaign span', context: 'STORM → album launch — deliberate pacing' },
     { value: '5', label: 'Total uploads', context: 'fewest of any case study artist' },
     { value: 'Growing', label: 'Channel classification', context: 'with minimum volume' },
   ];
@@ -801,8 +801,9 @@ function Gener8ionVisualProof({ accent }: { accent: string }) {
   const journey = [
     { d: 0, purpose: 'Hero Moment', detail: 'Capture attention at scale', format: 'STORM MV · 14M views', color: INK },
     { d: 2, purpose: 'World Expansion', detail: 'Deepen the story', format: 'BTS · 198K views', color: ELECTRIC },
-    { d: 2, purpose: 'Anticipation Building', detail: 'Extend the narrative', format: 'Album Trailer · 265K views', color: MINT },
-    { d: 23, purpose: 'Return Moment', detail: 'Give fans a reason to come back', format: 'LOVE & TEARS · 1.5M views', color: SIGNAL },
+    { d: 7, purpose: 'Format Extension', detail: 'Alternate performance', format: 'STORM II Performance', color: MINT },
+    { d: 28, purpose: 'Anticipation Building', detail: 'Rebuild attention at the midpoint', format: 'Album Trailer · 265K views', color: SUN },
+    { d: 49, purpose: 'Return Moment', detail: 'Album launch + title track', format: 'LOVE & TEARS MV · 1.5M views', color: SIGNAL },
   ];
 
   return (
@@ -821,8 +822,8 @@ function Gener8ionVisualProof({ accent }: { accent: string }) {
       {/* CAMPAIGN JOURNEY */}
       <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
-          <div className="eyebrow" style={{ color: MINT, margin: 0 }}>23-Day Campaign Journey</div>
-          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 campaign moments from 5 uploads</div>
+          <div className="eyebrow" style={{ color: MINT, margin: 0 }}>49-Day Campaign Arc</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>5 campaign moments · deliberate pacing</div>
         </div>
 
         <div style={{ position: 'relative', paddingLeft: 28 }}>
@@ -888,7 +889,7 @@ function Gener8ionVisualProof({ accent }: { accent: string }) {
                 GENER8ION
               </div>
               <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>5</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>uploads → 23.6M views</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>uploads across 49 days → 23.6M views</div>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
@@ -903,7 +904,7 @@ function Gener8ionVisualProof({ accent }: { accent: string }) {
         borderLeft: `4px solid ${MINT}`,
       }}>
         <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
-          More impact with 5 uploads than most channels get from 25.
+          A 49-day campaign that built attention deliberately — not one launch spike, but a series of planned return moments.
         </div>
       </div>
     </>
@@ -916,15 +917,15 @@ function KTrapVisualProof({ accent }: { accent: string }) {
   const evidence = [
     { value: 'Top 9%', label: 'Format diversity', context: '8 campaign moment types' },
     { value: '1.7×', label: 'More campaign moments than benchmark', context: '17 vs 9.8 average' },
-    { value: 'Day 30+', label: 'BTS timing gap', context: 'vs Day 7–10 recommended window' },
-    { value: 'Weak', label: 'Conversion classification', context: 'despite strong content volume' },
+    { value: '3', label: 'Standalone singles in 70 days', context: 'each with a different collaborator' },
+    { value: 'Weak', label: 'Conversion classification', context: 'despite exceeding Growing channel volume' },
   ];
 
-  const journey: { label: string; purpose: string; detail: string; format: string; color: string; missed?: boolean }[] = [
-    { label: 'Day 0', purpose: 'Hero Moment', detail: '3 release-day assets', format: 'Mystery Box + Change MV + LA Vlog · 1.8M views', color: accent },
-    { label: 'Day 7–10', purpose: 'Recommended Window', detail: 'Where BTS should land', format: 'No content delivered', color: MINT, missed: true },
-    { label: 'Day 30', purpose: 'Late Support', detail: 'Outside the attention window', format: 'Mystery Box BTS · 5.3K views', color: SIGNAL },
-    { label: 'Day 88', purpose: 'Late Support', detail: 'Audience has moved on', format: "Can’t Say No BTS · 2.7K views", color: SIGNAL },
+  const journey = [
+    { d: 0, purpose: 'Single 1', detail: 'Standalone release', format: 'Change MV ft. G Herbo · 879K views', color: accent },
+    { d: 15, purpose: 'Single 2', detail: 'Separate release, no campaign link', format: 'Mystery Box MV ft. Headie One · 902K views', color: ELECTRIC },
+    { d: 23, purpose: 'Follow-up', detail: '8 days after its own MV', format: 'Mystery Box BTS · 5.3K views', color: MINT },
+    { d: 70, purpose: 'Single 3', detail: 'Another standalone release', format: "Can't Say No MV ft. Young Adz · 298K views", color: SIGNAL },
   ];
 
   return (
@@ -943,8 +944,8 @@ function KTrapVisualProof({ accent }: { accent: string }) {
       {/* CAMPAIGN JOURNEY */}
       <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
-          <div className="eyebrow" style={{ color: WARM, margin: 0 }}>Support Timing Gap</div>
-          <div style={{ fontSize: '0.68rem', color: SMOKE }}>BTS at Day 30+ instead of Day 7–10</div>
+          <div className="eyebrow" style={{ color: WARM, margin: 0 }}>70-Day Rolling Singles</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>3 singles · 3 collaborators · no campaign thread</div>
         </div>
 
         <div style={{ position: 'relative', paddingLeft: 28 }}>
@@ -958,21 +959,19 @@ function KTrapVisualProof({ accent }: { accent: string }) {
               display: 'grid', gridTemplateColumns: '56px 1fr',
               gap: 16, alignItems: 'start',
               position: 'relative', marginBottom: i < journey.length - 1 ? 26 : 0,
-              opacity: step.missed ? 0.55 : 1,
             }}>
               <div style={{ position: 'absolute', left: -22, top: 4 }}>
                 <div style={{
                   width: 14, height: 14, borderRadius: '50%',
-                  background: step.missed ? 'transparent' : step.color,
-                  border: step.missed ? `2px dashed ${MINT}` : '3px solid #fff',
-                  boxShadow: step.missed ? 'none' : `0 0 0 1px ${BONE}`,
+                  background: step.color, border: '3px solid #fff',
+                  boxShadow: `0 0 0 1px ${BONE}`,
                 }} />
               </div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: step.missed ? MINT : SMOKE, paddingTop: 1 }}>
-                {step.label}
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: SMOKE, paddingTop: 1 }}>
+                Day {step.d}
               </div>
               <div>
-                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.missed ? MINT : step.color, marginBottom: 2 }}>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.color, marginBottom: 2 }}>
                   {step.purpose}
                 </div>
                 <div style={{ fontSize: '0.82rem', color: INK, fontWeight: 500 }}>
@@ -994,29 +993,29 @@ function KTrapVisualProof({ accent }: { accent: string }) {
           }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '0.68rem', color: MINT, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
-                Recommended
+                Growing Channels
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>Day 7–10</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>BTS attention window</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: MINT }}>5.1</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>avg format types</div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
               <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
-                <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={SIGNAL} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M28 10H4M4 10L10 4M4 10L10 16" stroke={SIGNAL} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: SIGNAL }}>actual</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: SIGNAL }}>but</span>
             </div>
 
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '0.68rem', color: SIGNAL, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+              <div style={{ fontSize: '0.68rem', color: valueColor, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
                 K-Trap
               </div>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: SIGNAL }}>Day 30+</div>
-              <div style={{ fontSize: '0.75rem', color: SMOKE }}>when BTS actually lands</div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: valueColor }}>8</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>format types — still Weak Conversion</div>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
-            The content exists. Moving it forward is a scheduling fix.
+            More variety than Growing channels, but no campaign thread connecting the releases.
           </div>
         </div>
       </Card>
@@ -1027,7 +1026,7 @@ function KTrapVisualProof({ accent }: { accent: string }) {
         borderLeft: `4px solid ${accent}`,
       }}>
         <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
-          The instincts are right. The fix is timing, not creation.
+          Volume and variety without campaign design. The opportunity is connecting sequential singles into one world.
         </div>
       </div>
     </>
@@ -1037,17 +1036,16 @@ function KTrapVisualProof({ accent }: { accent: string }) {
 function SnutsVisualProof({ accent }: { accent: string }) {
   const evidence = [
     { value: '22', label: 'Total campaign moments', context: '2.2× the benchmark average' },
-    { value: '6', label: 'Distinct format types', context: 'Lyric, Live, BTS, Acoustic, Shorts, OMV' },
-    { value: 'Pre-launch', label: 'Campaign timeline mapped', context: 'every moment planned before first upload' },
+    { value: '6', label: 'Distinct format types', context: 'OMV, Lyric, Live, Acoustic, Shorts, Session' },
+    { value: '139 days', label: 'Album rollout span', context: 'building toward Joy In Short Moments (Oct 23)' },
     { value: 'Rank 12', label: 'Of 138 channels', context: 'top 9% follow-up support' },
   ];
 
   const journey = [
     { d: 0, purpose: 'Hero Moment', detail: 'Launch the campaign', format: 'Summer Rain OMV · 177K views', color: accent },
-    { d: 19, purpose: 'Audience Deepening', detail: 'Alternate format, same world', format: 'Motherlands Lyric · 8.7K views', color: ELECTRIC },
-    { d: 49, purpose: 'Return Moment', detail: 'Bring fans back', format: 'Motherlands Live · 1.3K views', color: SIGNAL },
-    { d: 65, purpose: 'World Expansion', detail: 'Add depth to the campaign', format: 'Album BTS · 535 views', color: SUN },
-    { d: 77, purpose: 'Campaign Extension', detail: 'New single, same world', format: 'Defibrillator Lyric · 6.3K views', color: accent },
+    { d: 16, purpose: 'Format Extension', detail: 'Same single, different format', format: 'Summer Rain Live at Beecraigs · 1.3K views', color: ELECTRIC },
+    { d: 55, purpose: 'Campaign Expansion', detail: 'Second single deepens the world', format: 'Motherlands Lyric Video · 8.7K views', color: SIGNAL },
+    { d: 139, purpose: 'New Single Cycle', detail: 'Third single + album announcement', format: 'Defibrillator Lyric Video · 6.3K views', color: SUN },
   ];
 
   return (
@@ -1066,8 +1064,8 @@ function SnutsVisualProof({ accent }: { accent: string }) {
       {/* CAMPAIGN JOURNEY */}
       <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
-          <div className="eyebrow" style={{ color: accent, margin: 0 }}>77-Day Campaign Journey</div>
-          <div style={{ fontSize: '0.68rem', color: SMOKE }}>5 formats over 77 days — pre-mapped in Coach</div>
+          <div className="eyebrow" style={{ color: accent, margin: 0 }}>139-Day Album Rollout</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>pre-mapped in Coach · building to Oct album</div>
         </div>
 
         <div style={{ position: 'relative', paddingLeft: 28 }}>
@@ -1148,7 +1146,7 @@ function SnutsVisualProof({ accent }: { accent: string }) {
         borderLeft: `4px solid ${accent}`,
       }}>
         <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3 }}>
-          Planning is the one variable fully in our control.
+          Planning is the one variable fully in our control. A 139-day rollout with format extensions for every single.
         </div>
       </div>
     </>
