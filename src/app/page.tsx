@@ -571,48 +571,144 @@ function VisualProof({ title, headline, badges, accent, children }: {
 }
 
 function MaryVisualProof({ accent }: { accent: string }) {
-  const max = 36;
-  const pct = (d: number) => `${(d / max) * 100}%`;
+  const evidence = [
+    { value: '1 of 138', label: 'Channels using the 7–14 day window', context: 'the rarest campaign behaviour in the dataset' },
+    { value: 'Top 17%', label: 'Multi-format campaign', context: 'Rank 24 of 138 channels' },
+    { value: '29 days', label: 'Campaign rollout', context: '4 campaign moments across 4 formats' },
+    { value: 'Growing', label: 'Channel classification', context: 'despite modest view counts' },
+  ];
+
+  const journey = [
+    { d: 0, purpose: 'Hero Moment', detail: 'Capture attention', format: 'Crash Landing MV · 83K views', color: accent },
+    { d: 12, purpose: 'Audience Deepening', detail: 'Keep fans inside the follow-through window', format: 'New Muscles MV · 62K views', color: MINT },
+    { d: 21, purpose: 'Audience Return Moment', detail: 'Give fans a reason to come back', format: 'Live Session · 4.7K views', color: SIGNAL },
+    { d: 32, purpose: 'Campaign Extension', detail: 'Extend the campaign world', format: 'Mouse Visualiser · 5.1K views', color: SUN },
+  ];
+
   return (
-    <VisualProof
-      title="FOLLOW-THROUGH WINDOW"
-      headline="Only artist delivering content in the 7-14 day follow-through window — a behaviour rare across all 138 channels."
-      badges={[{ v: 'Growing', c: MINT }, { v: 'Top 17% diversity', c: accent }]}
-      accent={accent}
-    >
-      {/* Mary track */}
-      <div style={{ marginBottom: 24 }}>
-        <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.5)', fontWeight: 700, letterSpacing: '0.06em', marginBottom: 12 }}>
-          MARY IN THE JUNKYARD
+    <>
+      {/* EVIDENCE FIRST — Benchmark stat cards */}
+      <div style={{
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+        gap: 10, marginBottom: 24,
+      }}>
+        {evidence.map((s, i) => (
+          <div key={i} style={{
+            background: '#fff', borderRadius: 14, border: `1px solid ${BONE}`,
+            padding: '18px 14px', textAlign: 'center',
+          }}>
+            <div style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 900, color: accent, letterSpacing: '-0.03em', lineHeight: 1 }}>
+              {s.value}
+            </div>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: INK, marginTop: 6 }}>
+              {s.label}
+            </div>
+            <div style={{ fontSize: '0.62rem', color: SMOKE, marginTop: 2 }}>
+              {s.context}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* CAMPAIGN JOURNEY — Light canvas, purpose-labeled */}
+      <Card style={{ padding: '28px 24px', marginBottom: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 22 }}>
+          <div className="eyebrow" style={{ color: accent, margin: 0 }}>29-Day Campaign Journey</div>
+          <div style={{ fontSize: '0.68rem', color: SMOKE }}>4 campaign moments · 4 formats</div>
         </div>
-        <div style={{ position: 'relative', height: 56, marginLeft: 8 }}>
-          <div style={{ position: 'absolute', top: 7, left: 0, width: pct(32), height: 3, background: accent, borderRadius: 2 }} />
-          {[{ d: 0, t: 'OMV', v: '83K' }, { d: 12, t: 'OMV', v: '62K' }, { d: 21, t: 'Live', v: '4.7K' }, { d: 32, t: 'Vis', v: '5.1K' }].map(({ d, t, v }) => (
-            <div key={d} style={{ position: 'absolute', left: pct(d), transform: 'translateX(-50%)', textAlign: 'center' }}>
-              <div style={{ width: 16, height: 16, borderRadius: '50%', background: accent, margin: '0 auto' }} />
-              <div style={{ marginTop: 4, fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)' }}>Day {d}</div>
-              <div style={{ fontSize: '0.56rem', color: accent, fontWeight: 700 }}>{t} · {v}</div>
+
+        {/* Journey track */}
+        <div style={{ position: 'relative', paddingLeft: 28 }}>
+          {/* Vertical line */}
+          <div style={{
+            position: 'absolute', left: 13, top: 8, bottom: 8,
+            width: 2, background: `linear-gradient(${accent}, ${SUN})`,
+          }} />
+
+          {journey.map((step, i) => (
+            <div key={step.d} style={{
+              display: 'grid', gridTemplateColumns: '56px 1fr',
+              gap: 16, alignItems: 'start',
+              position: 'relative', marginBottom: i < journey.length - 1 ? 26 : 0,
+            }}>
+              {/* Dot */}
+              <div style={{ position: 'absolute', left: -22, top: 4 }}>
+                <div style={{
+                  width: 14, height: 14, borderRadius: '50%',
+                  background: step.color, border: '3px solid #fff',
+                  boxShadow: `0 0 0 1px ${BONE}`,
+                }} />
+              </div>
+
+              {/* Day label */}
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: SMOKE, paddingTop: 1 }}>
+                Day {step.d}
+              </div>
+
+              {/* Content */}
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: step.color, marginBottom: 2 }}>
+                  {step.purpose}
+                </div>
+                <div style={{ fontSize: '0.82rem', color: INK, fontWeight: 500 }}>
+                  {step.detail}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: SMOKE, marginTop: 2 }}>
+                  {step.format}
+                </div>
+              </div>
             </div>
           ))}
         </div>
-      </div>
-      {/* Benchmark track */}
-      <div>
-        <div style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)', fontWeight: 700, letterSpacing: '0.06em', marginBottom: 12 }}>
-          138-CHANNEL BENCHMARK
-        </div>
-        <div style={{ position: 'relative', height: 40, marginLeft: 8 }}>
-          <div style={{ position: 'absolute', top: 7, left: 0, right: 0, height: 2, backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.1) 0 6px, transparent 6px 14px)' }} />
-          <div style={{ position: 'absolute', left: 0, transform: 'translateX(-50%)', textAlign: 'center' }}>
-            <div style={{ width: 16, height: 16, borderRadius: '50%', background: 'rgba(255,255,255,0.15)' }} />
-            <div style={{ marginTop: 4, fontSize: '0.6rem', color: 'rgba(255,255,255,0.2)' }}>Day 0</div>
+
+        {/* 7–14 day window callout */}
+        <div style={{ marginTop: 24, paddingTop: 18, borderTop: `1px solid ${BONE}` }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+            gap: 16, alignItems: 'center',
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: SMOKE, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                138-Channel Benchmark
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: BONE }}>85%</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>go silent after Day 7</div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
+                <path d="M4 10H28M28 10L22 4M28 10L22 16" stroke={MINT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: '0.72rem', fontWeight: 800, color: MINT }}>Day 12</span>
+            </div>
+
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '0.68rem', color: accent, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
+                Mary in the Junkyard
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 900, color: accent }}>✓</div>
+              <div style={{ fontSize: '0.75rem', color: SMOKE }}>campaign moment in the window</div>
+            </div>
           </div>
-          <div style={{ position: 'absolute', left: '30%', top: 2, fontSize: '0.65rem', color: 'rgba(255,255,255,0.12)', fontStyle: 'italic' }}>
-            41% go silent after hero asset
+          <div style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: WARM, fontWeight: 500 }}>
+            The 7–14 day follow-through window is when most campaigns lose their audience. Mary delivered a second campaign moment at Day 12.
           </div>
         </div>
+      </Card>
+
+      {/* THE LEARNING — One memorable takeaway */}
+      <div style={{
+        background: CREAM, borderRadius: 14, padding: '22px 24px',
+        borderLeft: `4px solid ${accent}`,
+      }}>
+        <div className="headline" style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)', color: INK, lineHeight: 1.3, marginBottom: 6 }}>
+          Most campaigns disappear after release. Mary created audience return moments — and the channel grew.
+        </div>
+        <div style={{ fontSize: '0.82rem', color: SMOKE, lineHeight: 1.5 }}>
+          The only artist in the dataset delivering content in the 7–14 day window — the period that 85% of campaigns miss entirely.
+        </div>
       </div>
-    </VisualProof>
+    </>
   );
 }
 
@@ -857,8 +953,8 @@ function CaseStudies() {
                   {/* VISUAL PROOF — one visual per artist */}
                   <CaseStudyVisual slug={cs.artist_slug} accent={cs.accent} />
 
-                  {/* CAMPAIGN TIMELINE — visually dominant */}
-                  {cs.assets.length > 0 && (
+                  {/* CAMPAIGN TIMELINE — skip for Mary (handled in visual proof) */}
+                  {cs.assets.length > 0 && cs.artist_slug !== 'mary-in-the-junkyard' && (
                     <div style={{ marginBottom: 28 }}>
                       <div className="eyebrow" style={{ color: SMOKE, marginBottom: 14 }}>Campaign Timeline</div>
                       <div style={{
