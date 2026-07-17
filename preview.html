@@ -654,113 +654,55 @@ body {
 
 /* ---- Halo Effect Panel (GENER8ION) ---- */
 .halo-panel {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 16px;
-  overflow: visible;
-}
-
-@media (max-width: 768px) {
-  .halo-panel { grid-template-columns: 1fr; }
-}
-
-.halo-timeline-col {
-  background: var(--foreground);
-  border-radius: 16px;
-  padding: 1.5rem;
-}
-
-.halo-timeline-label {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--smoke);
-  margin-bottom: 1.25rem;
-}
-
-.halo-timeline-entry {
-  display: flex;
-  gap: 0.75rem;
-  position: relative;
-  padding-bottom: 1.25rem;
-}
-
-.halo-timeline-entry:last-child {
-  padding-bottom: 0;
-}
-
-.halo-timeline-dot-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 12px;
-  flex-shrink: 0;
-  padding-top: 0.2rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.halo-timeline-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--electric);
-  flex-shrink: 0;
-}
-
-.halo-timeline-line {
-  width: 2px;
-  flex: 1;
-  background: rgba(44, 37, 255, 0.3);
-  margin-top: 0.3rem;
-}
-
-.halo-timeline-date {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: var(--electric);
-  letter-spacing: 0.02em;
-  margin-bottom: 0.15rem;
-}
-
-.halo-timeline-desc {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.4;
-}
-
-.halo-spotify-col {
-  background: var(--electric);
+.halo-hero-strip {
+  background: var(--foreground);
   border-radius: 16px;
-  padding: 1.5rem;
-}
-
-.halo-spotify-label {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 1rem;
+  padding: 2rem 2.5rem;
 }
 
 .halo-hero-metrics {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .halo-hero-metrics { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 .halo-hero-stat {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.2rem;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.halo-hero-stat:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.25);
+}
+
+@media (max-width: 768px) {
+  .halo-hero-stat:not(:last-child)::after { display: none; }
+  .halo-hero-stat { padding-right: 0; }
 }
 
 .halo-hero-num {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 900;
   letter-spacing: -0.04em;
   color: #fff;
@@ -768,54 +710,76 @@ body {
 }
 
 .halo-hero-label {
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.35rem;
+}
+
+.halo-hero-sub {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: -0.01em;
   margin-top: 0.15rem;
 }
 
+.halo-hero-note {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+}
+
 .halo-hero-pct {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--foreground);
-  background: rgba(255,255,255,0.15);
-  padding: 0.15rem 0.5rem;
-  border-radius: 6px;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.2rem;
   white-space: nowrap;
 }
 
-.halo-secondary-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.15);
+.halo-timeline-col {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
 }
 
-.halo-secondary-stat {
-  text-align: center;
-}
-
-.halo-secondary-num {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #fff;
-}
-
-.halo-secondary-label {
+.halo-timeline-label {
   font-size: 0.55rem;
-  color: rgba(255,255,255,0.6);
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
+  color: var(--smoke);
+  margin-bottom: 1rem;
 }
 
-.halo-secondary-pct {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--foreground);
+.halo-timeline-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.halo-timeline-entry {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.halo-timeline-date {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--electric);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.halo-timeline-desc {
+  font-size: 0.72rem;
+  color: var(--warm);
+  line-height: 1.3;
 }
 
 /* ---- Expandable Panel ---- */
@@ -2029,19 +1993,19 @@ const campaigns = [
     category: 'EXTREME CASE STUDY',
     bestInClass: 'YouTube Halo Effect Across DSPs',
     behaviour: 'The Halo Effect',
-    statline: 'A breakout video moment on YouTube can travel beyond YouTube. Following the April 24 premiere of STORM starring Yung Lean, Spotify consumption accelerated almost immediately and remained significantly above its pre-launch baseline.',
+    statline: 'Following the April 24 YouTube premiere of STORM starring Yung Lean, Spotify consumption accelerated almost immediately. Daily streams increased ~21× around the launch, while monthly listeners subsequently grew from ~300K to a peak of ~2.5M.',
     headlines: null,
     haloEffect: {
       timeline: [
-        { date: 'APRIL 24', desc: 'YouTube hero video premieres' },
-        { date: 'APRIL 25', desc: '223,893 Spotify streams within 24 hours of premiere' },
-        { date: 'APRIL 29', desc: '67,988 saves/day, 37,883 playlist adds/day' },
-        { date: 'SUSTAINED', desc: 'Spotify consumption remains significantly above the pre-launch baseline' }
+        { date: 'APRIL 23', desc: 'Spotify daily streams: 10,519' },
+        { date: 'APRIL 24', desc: 'STORM premieres on YouTube' },
+        { date: 'APRIL 25', desc: 'Spotify daily streams: 223,893 — ~21× in two days' },
+        { date: 'PEAK', desc: 'Monthly listeners climb from ~300K to ~2.5M' }
       ],
       heroMetrics: [
-        { num: '37M', label: 'Spotify Streams', pct: '+1,333%' },
-        { num: '1M', label: 'Monthly Active Listeners', pct: '+1,835%' },
-        { num: '1.6M', label: 'Saves', pct: '+3,027%' }
+        { num: '14M', label: 'YouTube Views', sub: '', pct: '', note: 'STORM starring Yung Lean' },
+        { num: '~21×', label: 'Daily Spotify Streams', sub: '10.5K → 223.9K', pct: '+~2,028%', note: 'April 23 → April 25' },
+        { num: '~8×', label: 'Monthly Listeners', sub: '~300K → ~2.5M peak', pct: '+~733%', note: 'Around breakout period' }
       ]
     },
     assets: [
@@ -2051,11 +2015,11 @@ const campaigns = [
       { id: '5NGIpXM8Cn0', title: 'GENER8ION - LOVE & TEARS ft Yannis Philippakis', views: '1.5M', format: 'Single' }
     ],
     proof: null,
-    takeaway: 'Following the April 24 YouTube premiere, Spotify consumption accelerated almost immediately and remained significantly above its pre-launch baseline. While YouTube cannot be isolated as the sole cause, the timing provides a compelling example of how exceptional video-first creative can generate attention that travels beyond YouTube.',
+    takeaway: 'An extreme case study in the potential YouTube halo effect. While YouTube cannot be isolated as the sole driver, the timing and scale of the Spotify acceleration show how an exceptional video-first creative moment can coincide with significant audience growth beyond YouTube.',
     intel: {
       behaviour: 'A video-first creative breakout: STORM starring Yung Lean premiered on YouTube on April 24, 2026. The hero video was the centrepiece of a four-asset campaign — album trailer, OMV, BTS, and a return single featuring Yannis Philippakis of Foals. Each upload expanded the world rather than repeating it.',
-      evidence: 'April 24: YouTube premiere. April 25: Spotify streams reach 223,893/day. April 29: Saves reach 67,988/day, playlist adds reach 37,883/day. The spike coincided precisely with the YouTube moment. Campaign-period totals: 37M Streams (+1,333%), 1M Monthly Active Listeners (+1,835%), 1.6M Saves (+3,027%).',
-      outcome: 'The timing between the YouTube premiere and the Spotify acceleration is compelling. Cross-platform consumption appears to have been triggered by the video moment — suggesting that a breakout YouTube premiere can generate attention that travels well beyond YouTube into streaming, saving and playlist behaviour on DSPs.',
+      evidence: 'April 23: Spotify daily streams at 10,519. April 24: YouTube premiere. April 25: Spotify daily streams reach 223,893 (~21× increase in two days). Monthly listeners subsequently grew from ~300K to a peak of ~2.5M (~8× expansion). The spike coincided precisely with the YouTube moment.',
+      outcome: 'The timing between the YouTube premiere and the Spotify acceleration is compelling. Cross-platform consumption appears to have been triggered by the video moment — suggesting that a breakout YouTube premiere can generate attention that travels well beyond YouTube into streaming and listener growth on DSPs.',
       copyable: 'When the creative is exceptional and the moment is designed for impact, the audience doesn\'t stay on one platform. The GENER8ION case suggests that investing in a hero video premiere — built around strong creative and a genuine cultural moment — can produce measurable effects across streaming platforms. Plan the premiere as a cross-platform catalyst, not just a YouTube event.'
     }
   },
@@ -2252,31 +2216,26 @@ document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
 
   const haloHTML = c.haloEffect ? `
     <div class="halo-panel">
-      <div class="halo-timeline-col">
-        <div class="halo-timeline-label">The YouTube Moment</div>
-        ${c.haloEffect.timeline.map((t, i) => `
-          <div class="halo-timeline-entry">
-            <div class="halo-timeline-dot-col">
-              <div class="halo-timeline-dot"></div>
-              ${i < c.haloEffect.timeline.length - 1 ? '<div class="halo-timeline-line"></div>' : ''}
-            </div>
-            <div>
-              <div class="halo-timeline-date">${esc(t.date)}</div>
-              <div class="halo-timeline-desc">${esc(t.desc)}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="halo-spotify-col">
-        <div class="halo-spotify-label">Campaign-Period Spotify Impact</div>
+      <div class="halo-hero-strip">
         <div class="halo-hero-metrics">
           ${c.haloEffect.heroMetrics.map(m => `
             <div class="halo-hero-stat">
-              <div>
-                <div class="halo-hero-num">${esc(m.num)}</div>
-                <div class="halo-hero-label">${esc(m.label)}</div>
-              </div>
-              <div class="halo-hero-pct">${esc(m.pct)}</div>
+              <div class="halo-hero-num">${esc(m.num)}</div>
+              <div class="halo-hero-label">${esc(m.label)}</div>
+              ${m.sub ? `<div class="halo-hero-sub">${esc(m.sub)}</div>` : ''}
+              <div class="halo-hero-note">${esc(m.note)}</div>
+              ${m.pct ? `<div class="halo-hero-pct">${esc(m.pct)}</div>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="halo-timeline-col">
+        <div class="halo-timeline-label">Timeline</div>
+        <div class="halo-timeline-row">
+          ${c.haloEffect.timeline.map(t => `
+            <div class="halo-timeline-entry">
+              <div class="halo-timeline-date">${esc(t.date)}</div>
+              <div class="halo-timeline-desc">${esc(t.desc)}</div>
             </div>
           `).join('')}
         </div>
