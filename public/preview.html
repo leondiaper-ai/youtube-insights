@@ -718,29 +718,6 @@ body {
   margin-top: 0.35rem;
 }
 
-.halo-hero-sub {
-  font-size: 1rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: -0.01em;
-  margin-top: 0.15rem;
-}
-
-.halo-hero-note {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.4);
-  font-weight: 500;
-}
-
-.halo-hero-pct {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.6);
-  margin-top: 0.2rem;
-  white-space: nowrap;
-}
-
 .halo-timeline-col {
   background: var(--cream);
   border-radius: 16px;
@@ -2222,9 +2199,6 @@ document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
             <div class="halo-hero-stat">
               <div class="halo-hero-num">${esc(m.num)}</div>
               <div class="halo-hero-label">${esc(m.label)}</div>
-              ${m.sub ? `<div class="halo-hero-sub">${esc(m.sub)}</div>` : ''}
-              <div class="halo-hero-note">${esc(m.note)}</div>
-              ${m.pct ? `<div class="halo-hero-pct">${esc(m.pct)}</div>` : ''}
             </div>
           `).join('')}
         </div>
