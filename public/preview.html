@@ -526,13 +526,6 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
-.asset-hero {
-  grid-column: 1 / -1;
-}
-.asset-hero .asset-thumb {
-  max-height: 320px;
-  object-fit: cover;
-}
 
 .asset-thumb {
   width: 100%;
@@ -2211,7 +2204,7 @@ const campaigns = [
 
 document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
   const assetsHTML = c.assets.map((a, ai) => `
-    <a class="asset-card${c.haloEffect && ai === 0 ? ' asset-hero' : ''}" href="https://www.youtube.com/watch?v=${esc(a.id)}" target="_blank" rel="noopener">
+    <a class="asset-card" href="https://www.youtube.com/watch?v=${esc(a.id)}" target="_blank" rel="noopener">
       <img class="asset-thumb" src="https://i.ytimg.com/vi/${esc(a.id)}/mqdefault.jpg" alt="${esc(a.title)}" loading="lazy">
       <div class="asset-info">
         <span class="format-badge">${esc(a.format)}</span>
