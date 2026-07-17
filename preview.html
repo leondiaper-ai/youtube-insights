@@ -423,16 +423,22 @@ body {
 .campaign-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.6rem;
   margin-bottom: 0.75rem;
 }
+.campaign-header-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
 
 .campaign-artist {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--foreground);
-  letter-spacing: 0.01em;
+  color: var(--signal);
 }
 
 .campaign-category {
@@ -456,7 +462,6 @@ body {
   border-radius: 100px;
   color: var(--foreground);
   background: var(--sun);
-  margin-left: 0.4rem;
 }
 
 .campaign-behaviour {
@@ -1652,14 +1657,15 @@ body {
       <!-- ARIANA GRANDE -->
       <div class="campaign-card reveal" style="background:#fff">
         <div class="campaign-header">
-          <div class="campaign-category" style="background:#E8385C">MULTIFORMAT ROLLOUT</div>
-          <span class="market-bench-monitored" style="margin-left:auto">Monitored</span>
+          <div class="campaign-artist">Ariana Grande</div>
+          <div class="campaign-header-pills">
+            <div class="campaign-category" style="background:#E8385C">MULTIFORMAT ROLLOUT</div>
+            <span class="market-bench-monitored">Monitored</span>
+          </div>
         </div>
         <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem">
           <img src="https://yt3.ggpht.com/hK5f1t-mCu2WrNg3WPSrS5rySMl-wT0z3wNZuIWvC3gPtM4glWNszP0LthUxBcZVxgWVs6rq=s800-c-k-c0x00ffffff-no-rj" alt="Ariana Grande" style="width:36px;height:36px;border-radius:50%;object-fit:cover">
-          <div>
-            <div class="campaign-artist">Ariana Grande <span style="font-weight:400;color:var(--smoke)">@ArianaGrande &bull; 57.6M subscribers &bull; Global Pop</span></div>
-          </div>
+          <div style="font-size:0.85rem;color:var(--smoke)">@ArianaGrande &bull; 57.6M subscribers &bull; Global Pop</div>
         </div>
         <div class="campaign-behaviour">The Full Rollout, Every Release</div>
         <div class="campaign-statline">76% of channels stop at the hero upload. Ariana&rsquo;s latest campaign deployed 3 formats in weeks &mdash; OMV, Lyric Video, BTS &mdash; all feeding the same release.</div>
@@ -1695,14 +1701,15 @@ body {
       <!-- CMAT -->
       <div class="campaign-card reveal" style="background:#fff">
         <div class="campaign-header">
-          <div class="campaign-category" style="background:#2C25FF">LYRIC VIDEO ADOPTION</div>
-          <span class="market-bench-monitored" style="margin-left:auto">Monitored</span>
+          <div class="campaign-artist">CMAT</div>
+          <div class="campaign-header-pills">
+            <div class="campaign-category" style="background:#2C25FF">LYRIC VIDEO ADOPTION</div>
+            <span class="market-bench-monitored">Monitored</span>
+          </div>
         </div>
         <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem">
           <img src="https://yt3.ggpht.com/XM4jhGqtKN08162SyRYrwpa65yjatYmhuKe2HLHVCd0OC91Bhl1pAIo1LYmQVCCyjFLX-5Tvhg=s800-c-k-c0x00ffffff-no-rj" alt="CMAT" style="width:36px;height:36px;border-radius:50%;object-fit:cover">
-          <div>
-            <div class="campaign-artist">CMAT <span style="font-weight:400;color:var(--smoke)">@CMATbaby &bull; 60.7K subscribers &bull; Alt-Country</span></div>
-          </div>
+          <div style="font-size:0.85rem;color:var(--smoke)">@CMATbaby &bull; 60.7K subscribers &bull; Alt-Country</div>
         </div>
         <div class="campaign-behaviour">11 Lyric Videos in 29 Uploads</div>
         <div class="campaign-statline">Virgin trails Market in Lyric Video adoption (43.9% vs 53.6%). CMAT is classified GROWING and over-indexes on the exact format where Virgin has the widest gap to close.</div>
@@ -2280,9 +2287,11 @@ document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
   return `
     <div class="campaign-card reveal" id="campaign-${idx}">
       <div class="campaign-header">
-        <div class="campaign-category" style="background:${c.accent}">${esc(c.category)}</div>${c.bestInClass ? `<div class="best-in-class-tag">${esc(c.bestInClass)}</div>` : ''}
+        <div class="campaign-artist">${esc(c.artist)}</div>
+        <div class="campaign-header-pills">
+          <div class="campaign-category" style="background:${c.accent}">${esc(c.category)}</div>${c.bestInClass ? `<div class="best-in-class-tag">${esc(c.bestInClass)}</div>` : ''}
+        </div>
       </div>
-      <div class="campaign-artist">${esc(c.artist)}</div>
       <div class="campaign-behaviour">${esc(c.behaviour)}</div>
       <div class="campaign-statline">${esc(c.statline)}</div>
       ${haloHTML}
