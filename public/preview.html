@@ -681,23 +681,16 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  position: relative;
-  padding-right: 2rem;
 }
-
-.halo-hero-stat:not(:last-child)::after {
-  content: '→';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.25);
+.halo-hero-sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.02em;
+  margin-top: 0.15rem;
 }
 
 @media (max-width: 768px) {
-  .halo-hero-stat:not(:last-child)::after { display: none; }
   .halo-hero-stat { padding-right: 0; }
 }
 
@@ -1980,7 +1973,7 @@ const campaigns = [
         { date: 'PEAK', desc: 'Monthly listeners climb from ~300K to ~2.5M' }
       ],
       heroMetrics: [
-        { num: '14M', label: 'YouTube Views', sub: '', pct: '', note: 'STORM starring Yung Lean' },
+        { num: '14M', label: 'STORM · Yung Lean', sub: '', pct: '', note: '' },
         { num: '~169×', label: 'Daily Spotify Streams', sub: '5.4K → 905.6K peak', pct: '+16,773%', note: 'April 22 → May 8' },
         { num: '~8×', label: 'Monthly Listeners', sub: '~300K → ~2.5M peak', pct: '+~733%', note: 'Around breakout period' }
       ]
@@ -2199,6 +2192,7 @@ document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
             <div class="halo-hero-stat">
               <div class="halo-hero-num">${esc(m.num)}</div>
               <div class="halo-hero-label">${esc(m.label)}</div>
+              ${m.sub ? `<div class="halo-hero-sub">${esc(m.sub)}</div>` : ''}
             </div>
           `).join('')}
         </div>
