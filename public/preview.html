@@ -526,6 +526,14 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
+.asset-hero {
+  grid-column: 1 / -1;
+}
+.asset-hero .asset-thumb {
+  max-height: 320px;
+  object-fit: cover;
+}
+
 .asset-thumb {
   width: 100%;
   aspect-ratio: 16/9;
@@ -2012,46 +2020,32 @@ const campaigns = [
     category: 'EXTREME CASE STUDY',
     bestInClass: 'YouTube Halo Effect Across DSPs',
     behaviour: 'The Halo Effect',
-    statline: 'A breakout video moment on YouTube can travel beyond YouTube. Following the April 24 premiere of STORM starring Yung Lean, Spotify consumption accelerated almost immediately — streams, saves and playlist adds all showed sharp increases within days.',
-    headlines: [
-      'Within 24 hours of the YouTube premiere, Spotify streams reached 223,893 in a single day.',
-      'By day five, saves reached 67,988/day and playlist adds hit 37,883/day — consumption spread across the platform.',
-      'Monthly Active Listeners grew to 1M (+1,835%), Streams to 37M (+1,333%), Saves to 1.6M (+3,027%).'
-    ],
+    statline: 'A breakout video moment on YouTube can travel beyond YouTube. Following the April 24 premiere of STORM starring Yung Lean, Spotify consumption accelerated almost immediately and remained significantly above its pre-launch baseline.',
+    headlines: null,
     haloEffect: {
       timeline: [
-        { date: 'APRIL 24', desc: 'YouTube hero video premieres — video-first creative breakout' },
-        { date: 'APRIL 25', desc: 'Spotify streams reach 223,893 in a single day' },
-        { date: 'APRIL 29', desc: 'Saves reach 67,988/day, playlist adds reach 37,883/day' },
-        { date: 'SUSTAINED', desc: 'Consumption remains elevated above pre-breakout baseline' }
+        { date: 'APRIL 24', desc: 'YouTube hero video premieres — 14M views' },
+        { date: 'APRIL 25', desc: '223,893 Spotify streams within 24 hours of premiere' },
+        { date: 'APRIL 29', desc: '67,988 saves/day, 37,883 playlist adds/day' },
+        { date: 'SUSTAINED', desc: 'Spotify consumption remains significantly above the pre-launch baseline' }
       ],
       heroMetrics: [
-        { num: '1M', label: 'Monthly Active Listeners', pct: '+1,835%' },
         { num: '37M', label: 'Spotify Streams', pct: '+1,333%' },
+        { num: '1M', label: 'Monthly Active Listeners', pct: '+1,835%' },
         { num: '1.6M', label: 'Saves', pct: '+3,027%' }
-      ],
-      secondaryMetrics: [
-        { num: '4.4M', label: 'Listeners', pct: '+761%' },
-        { num: '1M', label: 'PL Adds', pct: '+1,127%' },
-        { num: '43K', label: 'Followers', pct: '+316%' }
       ]
     },
     assets: [
-      { id: 'di1E6JTuYRE', title: 'LOVE & TEARS - Album Trailer', views: '265K', format: 'Trailer' },
       { id: 'x6_mbnsh6VU', title: 'GENER8ION - STORM starring Yung Lean', views: '14M', format: 'OMV' },
+      { id: 'di1E6JTuYRE', title: 'LOVE & TEARS - Album Trailer', views: '265K', format: 'Trailer' },
       { id: 'Xoi7reIF2r8', title: 'GENER8ION - STORM (BTS) Starring Yung Lean', views: '198K', format: 'BTS' },
       { id: '5NGIpXM8Cn0', title: 'GENER8ION - LOVE & TEARS ft Yannis Philippakis', views: '1.5M', format: 'Single' }
     ],
-    proof: [
-      { value: '1M', desc: 'Monthly Active Listeners' },
-      { value: '+1,835%', desc: 'MAL Growth' },
-      { value: '37M', desc: 'Spotify Streams' },
-      { value: '+3,027%', desc: 'Save Growth' }
-    ],
-    takeaway: 'Following the April 24 YouTube premiere, Spotify consumption accelerated almost immediately, with streams, saves and playlist adds all showing sharp increases. While YouTube cannot be isolated as the sole cause, the timing provides a compelling example of how exceptional, video-first creative can generate attention that travels across platforms.',
+    proof: null,
+    takeaway: 'Following the April 24 YouTube premiere, Spotify consumption accelerated almost immediately and remained significantly above its pre-launch baseline. While YouTube cannot be isolated as the sole cause, the timing provides a compelling example of how exceptional video-first creative can generate attention that travels beyond YouTube.',
     intel: {
       behaviour: 'A video-first creative breakout: STORM starring Yung Lean premiered on YouTube on April 24, 2026. The hero video was the centrepiece of a four-asset campaign — album trailer, OMV, BTS, and a return single featuring Yannis Philippakis of Foals. Each upload expanded the world rather than repeating it.',
-      evidence: 'April 24: YouTube premiere. April 25: Spotify streams reach 223,893/day. April 29: Saves reach 67,988/day, playlist adds reach 37,883/day. The spike coincided precisely with the YouTube moment. 1M Monthly Active Listeners (+1,835%), 4.4M Total Listeners (+761%), 37M Streams (+1,333%), 1.6M Saves (+3,027%), 1M Playlist Adds (+1,127%), 43K Followers (+316%).',
+      evidence: 'April 24: YouTube premiere (14M views). April 25: Spotify streams reach 223,893/day. April 29: Saves reach 67,988/day, playlist adds reach 37,883/day. The spike coincided precisely with the YouTube moment. Campaign-period totals: 37M Streams (+1,333%), 1M Monthly Active Listeners (+1,835%), 1.6M Saves (+3,027%).',
       outcome: 'The timing between the YouTube premiere and the Spotify acceleration is compelling. Cross-platform consumption appears to have been triggered by the video moment — suggesting that a breakout YouTube premiere can generate attention that travels well beyond YouTube into streaming, saving and playlist behaviour on DSPs.',
       copyable: 'When the creative is exceptional and the moment is designed for impact, the audience doesn\'t stay on one platform. The GENER8ION case suggests that investing in a hero video premiere — built around strong creative and a genuine cultural moment — can produce measurable effects across streaming platforms. Plan the premiere as a cross-platform catalyst, not just a YouTube event.'
     }
@@ -2216,8 +2210,8 @@ const campaigns = [
 ];
 
 document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
-  const assetsHTML = c.assets.map(a => `
-    <a class="asset-card" href="https://www.youtube.com/watch?v=${esc(a.id)}" target="_blank" rel="noopener">
+  const assetsHTML = c.assets.map((a, ai) => `
+    <a class="asset-card${c.haloEffect && ai === 0 ? ' asset-hero' : ''}" href="https://www.youtube.com/watch?v=${esc(a.id)}" target="_blank" rel="noopener">
       <img class="asset-thumb" src="https://i.ytimg.com/vi/${esc(a.id)}/mqdefault.jpg" alt="${esc(a.title)}" loading="lazy">
       <div class="asset-info">
         <span class="format-badge">${esc(a.format)}</span>
@@ -2265,7 +2259,7 @@ document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
         `).join('')}
       </div>
       <div class="halo-spotify-col">
-        <div class="halo-spotify-label">Spotify Impact</div>
+        <div class="halo-spotify-label">Campaign-Period Spotify Impact</div>
         <div class="halo-hero-metrics">
           ${c.haloEffect.heroMetrics.map(m => `
             <div class="halo-hero-stat">
@@ -2274,15 +2268,6 @@ document.getElementById('campaignCards').innerHTML = campaigns.map((c, idx) => {
                 <div class="halo-hero-label">${esc(m.label)}</div>
               </div>
               <div class="halo-hero-pct">${esc(m.pct)}</div>
-            </div>
-          `).join('')}
-        </div>
-        <div class="halo-secondary-row">
-          ${c.haloEffect.secondaryMetrics.map(m => `
-            <div class="halo-secondary-stat">
-              <div class="halo-secondary-num">${esc(m.num)}</div>
-              <div class="halo-secondary-label">${esc(m.label)}</div>
-              <div class="halo-secondary-pct">${esc(m.pct)}</div>
             </div>
           `).join('')}
         </div>
